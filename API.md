@@ -15,3 +15,11 @@ JSON API used by GurbaniNow Web and other small Projects
 | `raag`   | Set Raag - [Link Here for RaagID's]()                                                                                                                            |
 | `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `1,2,3,4.....` - Custom Number of Results<br> `all` - All Results **(Slow)**                                                       |
 | `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                        |
+
+## Get Shabad
+
+| Variable   | Use                                                                                                                                                                  |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mode`     | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
+| `shabadNo` | Set Shabad Number                                                                                                                                                    |
+| `format`   | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
