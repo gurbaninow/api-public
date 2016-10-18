@@ -13,5 +13,5 @@ JSON API used by GurbaniNow Web and other small Projects
 | `type`   | Search Type<br> `0` - First Letter Start (Gurmukhi)<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
 | `writer` | Set Writer - [Link Here for WriterID's]()                                                                                                                        |
 | `raag`   | Set Raag - [Link Here for RaagID's]()                                                                                                                            |
-| `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `all` - All Results **(Slow)**                                                                                       |
+| `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `number` - `number` Results<br> `all` - All Results **(Slow)**                                                       |
 | `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                        |
