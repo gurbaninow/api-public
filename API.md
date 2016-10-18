@@ -23,3 +23,11 @@ JSON API used by GurbaniNow Web and other small Projects
 | `mode`     | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
 | `shabadNo` | Set Shabad Number                                                                                                                                                    |
 | `format`   | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
+
+## Get Ang
+
+| Variable | Use                                                                                                                                                                  |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
+| `ang`    | Set Ang/Paana Number                                                                                                                                                 |
+| `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
