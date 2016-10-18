@@ -1,7 +1,7 @@
 # GurbaniNow API Docs
 JSON API used by GurbaniNow Web and other small Projects
 
-#### The API is located at [https://gurbaninow.com/web/](https://gurbaninow.com/web/). The API is a normal GET API, it does not use REST or SOAP.
+#### The API is located at [https://gurbaninow.com/api/](https://gurbaninow.com/api/). The API is a normal GET API, it does not use REST or SOAP.
 
 ## Search
 
