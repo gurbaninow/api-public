@@ -1,19 +1,11 @@
 # GurbaniNow
 Modern and Simple Cross-Platform Gurbani Search Program
 
-### [DEMO](https://gurbani.khalsaspirit.com/)
+### [DEMO](https://gurbaninow.com/web/)
 ### System Requirements
 1. Windows 7/8/8.1/10 x64, MacOS 10.9+ x64, Ubuntu 12.04+, Fedora 21+, Debian 8+
 2. A Decent Modern Computer with a Semi-Powerful CPU
 3. 100-200MB of Disk Space
-
-## Screenshots
-![alt text](https://puu.sh/p8mxg/fb4d0e2a77.png)
-![alt text](https://puu.sh/p8mAv/a34f962b99.png)
-![alt text](https://puu.sh/p8mFk/cc30872ecd.png)
-![alt text](https://puu.sh/p8mIt/203d14573c.png)
-![alt text](https://puu.sh/p8mO1/3861e24490.png)
-![alt text](https://puu.sh/p8mQa/8479961b60.png)
 
 ## License
 GurbaniNow © 2015-2016 Sarabveer Singh. All Rights Reserved.
