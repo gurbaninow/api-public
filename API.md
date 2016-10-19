@@ -31,3 +31,57 @@ JSON API used by GurbaniNow Web and other small Projects
 | `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
 | `ang`    | Set Ang/Paana Number                                                                                                                                                 |
 | `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
+
+## RaagID
+
+- `0` - All Raags **(If Shabad Returns `0` as RaagID, it means No Raag)**
+- `1` - Jap
+- `2` - So Dar
+- `3` - So Purakh
+- `4` - Sohila
+- `5` - Siree Raag
+- `6` - Raag Maajh
+- `7` - Raag Gauree
+- `8` - Raag Aasaa
+- `9` - Raag Gujri
+- `10` - Raag Dayv Gandhaaree
+- `11` - Raag Bihaagraa
+- `12` - Raag Vadhans
+- `13` - Raag Sorath
+- `14` - Raag Dhanaasree
+- `15` - Raag Jaithsree
+- `16` - Raag Todee
+- `17` - Raag Baihaaree
+- `18` - Raag Tilang
+- `19` - Raag Soohee
+- `20` - Raag Bilaaval
+- `21` - Raag Gond
+- `22` - Raag Raamkalee
+- `23` - Raag Nat Naaraayan
+- `24` - Raag Maalee Gauraa
+- `25` - Raag Maaroo
+- `26` - Raag Tukhaari
+- `27` - Raag Kaydaaraa
+- `28` - Raag Bhairao
+- `29` - Raag Basant
+- `30` - Raag Saarang
+- `31` - Raag Malaar
+- `32` - Raag Kaanraa
+- `33` - Raag Kalyaan
+- `34` - Raag Prabhaatee
+- `35` - Raag Jaijaavantee
+- `36` - Salok Sehshritee
+- `37` - Fifth Mehl, Gaathaa
+- `38` - Phunhay Fifth Mehl
+- `39` - Chaubolas Fifth Mehl
+- `40` - Salok Kabeer Jee
+- `41` - Salok Fareed Jee
+- `42` - Svaiyay Mehl 5
+- `43` - Salok Vaaraan Thay Vadheek
+- `44` - Salok Mehl 9
+- `45` - Mundhaavanee Fifth Mehl
+- `46` - Raag Maalaa
+- `47` - Vaaran
+- `48` - Dasam Granth Sahib
+- `49` - Uggardanti
+- `50` - Amrit Keertan
