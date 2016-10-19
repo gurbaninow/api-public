@@ -13,7 +13,7 @@ JSON API used by GurbaniNow Web and other small Projects
 | `type`   | Search Type<br> `0` - First Letter Start (Gurmukhi)<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
 | `writer` | Set Writer - [Link Here for WriterID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#writerid)                                                                                                                        |
 | `raag`   | Set Raag - [Link Here for RaagID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#raagid)                                                                                                                            |
-| `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `1,2,3,4.....` - Custom Number of Results<br> `all` - All Results **(Slow)**                                                       |
+| `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)                                                    |
 | `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                        |
 
 ## Get Shabad
