@@ -27,15 +27,17 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## Get Ang
 
+**URL**: `https://api.gurbaninow.com/ang/:page`  
+**URL2**: `https://api.gurbaninow.com/ang/:page/:source`
+
 | Variable | Use                                                                                                                                                                  |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `ang`    | Set Ang/Paana Number                                                                                                                                                 |
-| `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
+| `:ang`    | Set Ang/Paana Number (**REQUIRED**)                                                                                                                                 |
+| `:source`   | Sets which Source you want Shabads from:<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti |
 
 ## RaagID
 
-- `0` - All Raags **(If Shabad Returns `0` as RaagID, it means No Raag)**
+- `0` - All Raags
 - `1` - Jap
 - `2` - So Dar
 - `3` - So Purakh
@@ -89,7 +91,7 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## WriterID
 
-- `0` - All Writers **(If Shabad Returns `0` as WriterID, it means Unknown Writer)**
+- `0` - All Writers
 - `1` - Guru Nanak Dev Ji
 - `2` - Guru Angad Dev Ji
 - `3` - Guru Amar Daas Ji
