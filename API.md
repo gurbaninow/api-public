@@ -5,17 +5,18 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## Search
 
+**URL**: `https://api.gurbaninow.com/search/:query`  
+**Example**: `https://api.gurbaninow.com/search/DDrgj/?source=G&searchtype=1`
+
 | Variable | Use                                                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `1` to Search.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `q`      | The Actual Query, whatever is typed into the Search Box. Remember for Gurmukhi Searches, the API uses GuabniLipi/GurbaniAkhar keyset.                            |
-| `src`    | Set the Scripture to Search From.<br>`0` - All<br> `1` - SGGS<br> `2` - Vaaran<br> `3` - Dasam Granth and Amrit Keertan                                          |
-| `type`   | Search Type<br> `0` - First Letter Start (Gurmukhi)<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
-| `writer` | Set Writer - [Link Here for WriterID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#writerid)                                                                                                                        |
-| `raag`   | Set Raag - [Link Here for RaagID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#raagid)                                                                                                                            |
+| `:query` | The Actual Query, whatever is typed into the Search Box. Remember for Gurmukhi Searches, the API uses GurbaniLipi/GurbaniAkhar keyset.                            |
+| `source` | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti                                          |
+| `searchtype`   | Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
+| `writer` | Set Writer **(Default is All Writers)** - [Link Here for WriterID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#writerid)                                                                                                                        |
+| `raag`   | Set Raag **(Default is All Raags)** - [Link Here for RaagID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#raagid)                                                                                                                            |
 | `ang`   | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo      |
-| `recnum` | Set Shabad Results<br> `0` - 20 Results<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)                                                    |
-| `format` | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                        |
+| `results` | Set Shabad Results<br>20 Results **(DEFAULT)**<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)                                                    |
 
 ## Get Shabad
 
