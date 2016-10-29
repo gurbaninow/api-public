@@ -38,7 +38,6 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## RaagID
 
-- `0` - All Raags
 - `1` - Jap
 - `2` - So Dar
 - `3` - So Purakh
@@ -92,7 +91,6 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## WriterID
 
-- `0` - All Writers
 - `1` - Guru Nanak Dev Ji
 - `2` - Guru Angad Dev Ji
 - `3` - Guru Amar Daas Ji
