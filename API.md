@@ -1,7 +1,7 @@
 # GurbaniNow API Docs
 JSON API used by GurbaniNow Web and other small Projects
 
-#### The API is located at [https://gurbaninow.com/api/](https://gurbaninow.com/api/). The API is a normal GET API, it does not use REST or SOAP.
+#### The API is located at [https://api.gurbaninow.com](https://api.gurbaninow.com).
 
 ## Search
 
@@ -19,11 +19,11 @@ JSON API used by GurbaniNow Web and other small Projects
 
 ## Get Shabad
 
+**URL**: `https://api.gurbaninow.com/shabad/:id`
+
 | Variable   | Use                                                                                                                                                                  |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`     | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `shabadNo` | Set Shabad Number                                                                                                                                                    |
-| `format`   | Set API Response Format<br> `json` - JSON<br> `xml` - XML                                                                                                            |
+| `:id`      | ShabadID                                                                                                                                                 |            
 
 ## Get Ang
 
