@@ -36,6 +36,12 @@ JSON API used by GurbaniNow Web and other small Projects
 | `:ang`    | Set Ang/Paana Number (**REQUIRED**)                                                                                                                                 |
 | `:source`   | Sets which Source you want Shabads from:<br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti |
 
+## Hukamnama
+
+**URL**: `https://api.gurbaninow.com/hukamnama`
+
+### Powered By [Mukhwak](https://mukhwakh.herokuapp.com/)
+
 ## RaagID
 
 - `1` - Jap
