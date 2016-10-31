@@ -153,6 +153,8 @@ Variable|Use
 
 #### The API is located at [https://api.gurbaninow.com/v1/](https://api.gurbaninow.com/v1/). The API is a normal GET API, it does not use REST or SOAP.
 
+##### NOTE: This API is a wrapper for the v2 API using the v1 parameters, is deprecated is only recomended for use in old applications that need to use the old [iGurbani v1](http://v1.igurbani.com/) query layout, eg. [GurbaniNow](https://gurbaninow.com/web)
+
 ## Search
 
 | Variable | Use                                                                                                                                                              |
