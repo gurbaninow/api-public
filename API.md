@@ -1,46 +1,56 @@
-# GurbaniNow API Docs
-JSON API used by GurbaniNow Web and other small Projects
+# GurbaniNow API v2
 
-#### The API is located at [https://api.gurbaninow.com](https://api.gurbaninow.com).
+JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other projects.
+
+#### The API is located at https://api.gurbaninow.com.
+
+##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1 . Docs for the same are present [here](https://github.com/Sarabveer/gurbaninow/blob/2709c50da90377edcbcf9767302c8ce9d9bd5886/API.md).
+
+# Documentation
 
 ## Search
 
 **URL**: `https://api.gurbaninow.com/search/:query`  
 **Example**: `https://api.gurbaninow.com/search/DDrgj/?source=G&searchtype=1`
 
-| Variable | Use                                                                                                                                                              |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `:query` | The Actual Query, whatever is typed into the Search Box. Remember for Gurmukhi Searches, the API uses GurbaniLipi/GurbaniAkhar keyset.                            |
-| `source` | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti                                          |
-| `searchtype`   | Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
-| `writer` | Set Writer **(Default is All Writers)** - [Link Here for WriterID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#writerid)                                                                                                                        |
-| `raag`   | Set Raag **(Default is All Raags)** - [Link Here for RaagID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#raagid)                                                                                                                            |
-| `ang`   | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo      |
-| `results` | Set Shabad Results<br>20 Results **(DEFAULT)**<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)                                                    |
+
+Variable|Use
+:--|:--
+`:query`    |The Actual Query, whatever is typed into the Search Box. Remember for Gurmukhi Searches, the API uses GurbaniLipi/GurbaniAkhar keyset.
+`source`    | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
+`searchtype`| Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)
+`writer`    | Set Writer **(Default is All Writers)** - [WriterIDs](#writerid)
+`raag`      | Set Raag **(Default is All Raags)** - [RaagIDs](#raagid)
+`ang`       | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo
+`results`   | Set count of results <br>20 Results **(DEFAULT)**<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)
 
 ## Get Shabad
 
-**URL**: `https://api.gurbaninow.com/shabad/:id`
+**URL**: `https://api.gurbaninow.com/shabad/:id`  
+**Example**: `https://api.gurbaninow.com/shabad/3589`
 
-| Variable   | Use                                                                                                                                                                  |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `:id`      | ShabadID                                                                                                                                                 |            
+Variable|Use
+:--|:--
+`:id`|ShabadID         
 
 ## Get Ang
 
-**URL**: `https://api.gurbaninow.com/ang/:page`  
-**URL2**: `https://api.gurbaninow.com/ang/:page/:source`
+**URL**: `https://api.gurbaninow.com/ang/:page/:source?`  
 
-| Variable | Use                                                                                                                                                                  |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `:ang`    | Set Ang/Paana Number (**REQUIRED**)                                                                                                                                 |
-| `:source`   | Sets which Source you want Shabads from:<br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti |
+**Examples**: `https://api.gurbaninow.com/ang/917`, `https://api.gurbaninow.com/ang/2748/D`   
 
-## Hukamnama
+Variable|Use 
+:--|:--
+`:ang`   | Set Ang/Paana Number (**REQUIRED**)
+`:source`| Sets which Source you want Shabads from: (**OPTIONAL**) <br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
+
+## Get Hukamnama
 
 **URL**: `https://api.gurbaninow.com/hukamnama`
 
-### Powered By [Mukhwak](https://mukhwakh.herokuapp.com/)
+#### Powered By [Mukhwak](https://mukhwakh.herokuapp.com/)
+
+# Miscellaneous Information
 
 ## RaagID
 
