@@ -4,7 +4,7 @@ JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other project
 
 #### The API is located at https://api.gurbaninow.com.
 
-##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1. Docs for the same are present [here](https://github.com/Sarabveer/gurbaninow/blob/2709c50da90377edcbcf9767302c8ce9d9bd5886/API.md).
+##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1. Docs for the v1 of the API are present [here](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#api-v1-docs).
 
 # Documentation
 
