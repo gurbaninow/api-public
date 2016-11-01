@@ -50,6 +50,14 @@ Variable|Use
 
 #### Powered By [Mukhwak](https://mukhwakh.herokuapp.com/)
 
+## Convert GurbaniAkhar/Lipi to Unicode
+
+**URL**: `https://api.gurbaninow.com/akhar/:query`
+
+Variable|Use
+:--|:--
+`:query`|Gurbani Text to be Converted to Unicode    
+
 # Miscellaneous Information
 
 ## RaagID
