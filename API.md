@@ -35,7 +35,9 @@ Variable|Use
 
 ## Get Ang
 
-**URL**: `https://api.gurbaninow.com/ang/:page/:source?`  
+**URL**: `https://api.gurbaninow.com/ang/:page` 
+
+**URL2**: `https://api.gurbaninow.com/ang/:page/:source`  
 
 **Examples**: `https://api.gurbaninow.com/ang/917`, `https://api.gurbaninow.com/ang/2748/D`   
 
