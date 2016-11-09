@@ -107,7 +107,6 @@ Variable|Use
 - `43` - Salok Vaaraan Thay Vadheek
 - `44` - Salok Mehl 9
 - `45` - Mundhaavanee Fifth Mehl
-- `46` - Raag Maalaa
 - `47` - Vaaran
 - `48` - Dasam Granth Sahib
 - `49` - Uggardanti
