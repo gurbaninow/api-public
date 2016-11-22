@@ -1,11 +1,15 @@
 # GurbaniNow
 Modern and Simple Cross-Platform Gurbani Search Program
 
-### [DEMO](https://gurbaninow.com/web/)
-### System Requirements
-1. Windows 7/8/8.1/10 x64, MacOS 10.9+ x64, Ubuntu 12.04+, Fedora 21+, Debian 8+
-2. A Decent Modern Computer with a Semi-Powerful CPU
-3. 100-200MB of Disk Space
+### [GurbaniNow Web](https://gurbaninow.com/web/)
+
+## API
+
+Check out [API.md](https://github.com/Sarabveer/gurbaninow/blob/master/API.md) for Docs on how to use the GurbaniNow API
+
+### Used By
+[GurbaniNow](https://gurbaninow.com/web/) | [SikhJS](https://bogas04.github.io/SikhJS/) | [/r/sikh](https://www.reddit.com/r/Sikh/) 
+:--|:--|:--
 
 ## License
 GurbaniNow © 2015-2016 Sarabveer Singh. All Rights Reserved.
