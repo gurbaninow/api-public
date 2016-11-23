@@ -109,10 +109,28 @@ Variable|Use
 - `43` - Salok Vaaraan Thay Vadheek
 - `44` - Salok Mehl 9
 - `45` - Mundhaavanee Fifth Mehl
-- `47` - Vaaran
-- `48` - Dasam Granth Sahib
-- `49` - Uggardanti
-- `50` - Amrit Keertan
+- `46` - Vaaran
+- `47  - Amrit Keertan
+- `48` - Jaap
+- `49` - Akaal Ustaat
+- `50` - Bachittar Natak
+- `51` - Ukat Bilaas
+- `52` - Chandi Charittar
+- `53` - Chandi Di Vaar
+- `54` - Giaan Parbodh
+- `55` - 24 Avtaar
+- `56` - Brahma Avtaar
+- `57` - Rudra Avtaar
+- `58` - Paaras Naath Rudra
+- `59` - Shabad Hazare 10
+- `60` - 33 Savaiye
+- `61` - Khalsa Mahima
+- `62` - Shastar Naam Maalaa
+- `63` - Charitropakhyan
+- `64` - Benti Choupai (Charitropakhyan)
+- `65` - Zafarnama
+- `66` - Hakiats
+- `67` - Uggardanti
 
 ## WriterID
 
