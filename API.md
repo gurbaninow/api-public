@@ -110,7 +110,7 @@ Variable|Use
 - `44` - Salok Mehl 9
 - `45` - Mundhaavanee Fifth Mehl
 - `46` - Vaaran
-- `47  - Amrit Keertan
+- `47`  - Amrit Keertan
 - `48` - Jaap
 - `49` - Akaal Ustaat
 - `50` - Bachittar Natak
