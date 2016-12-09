@@ -50,6 +50,8 @@ Variable|Use
 
 **URL**: `https://api.gurbaninow.com/hukamnama`
 
+##### **NOTE**: Updates Daily at 8:30 PM Eastern Time
+
 ## Convert GurbaniAkhar/Lipi to Unicode
 
 **URL**: `https://api.gurbaninow.com/akhar/:query`
