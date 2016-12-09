@@ -50,8 +50,6 @@ Variable|Use
 
 **URL**: `https://api.gurbaninow.com/hukamnama`
 
-#### Powered By [Mukhwak](https://mukhwakh.herokuapp.com/)
-
 ## Convert GurbaniAkhar/Lipi to Unicode
 
 **URL**: `https://api.gurbaninow.com/akhar/:query`
