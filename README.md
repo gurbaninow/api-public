@@ -1,6 +1,10 @@
-# GurbaniNow API v2
+# GurbaniNow API
 
 JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other projects.
+
+### Used By
+[GurbaniNow](https://gurbaninow.com/web/) | [SikhJS](https://bogas04.github.io/SikhJS/) | [/r/sikh](https://www.reddit.com/r/Sikh/) 
+:--|:--|:--
 
 #### The API is located at https://api.gurbaninow.com.
 
