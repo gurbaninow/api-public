@@ -8,7 +8,7 @@ JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other project
 
 #### The API is located at https://api.gurbaninow.com.
 
-##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1. Docs for the v1 of the API are present [here](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#api-v1-docs).
+##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1. Docs for the v1 of the API are present [here](https://github.com/GurbaniNow/gurbaninow-api/blob/master/README.md#api-v1-docs).
 
 # Documentation
 
@@ -54,7 +54,7 @@ Variable|Use
 
 **URL**: `https://api.gurbaninow.com/hukamnama`
 
-##### **NOTE**: Updates Daily at 8:30 PM Eastern Time
+##### NOTE: Hukamnama API Updates Daily at 8:30 PM Eastern Time
 
 ## Convert GurbaniAkhar/Lipi to Unicode
 
@@ -212,3 +212,27 @@ Variable|Use
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
 | `ang`    | Set Ang/Paana Number                                                                                                                                                 | 
+
+
+# Licence
+
+```
+GurbaniNow © 2015-2016 Sarabveer Singh. All Rights Reserved.
+
+Any Data recieved by any means from the GurbaniNow API is licensed under  
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+
+You should have received a copy of the license along with this  
+work.  If not, see <https://creativecommons.org/licenses/by-nc-nd/4.0/>.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  
+THE SOFTWARE.
+
+December 10, 2016  
+Subject To Change
+```
