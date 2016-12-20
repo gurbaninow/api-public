@@ -35,7 +35,16 @@ Variable|Use
 
 Variable|Use
 :--|:--
-`:id`|ShabadID         
+`:id`|ShabadID
+
+## Get Line
+
+**URL**: `https://api.gurbaninow.com/line/:id`  
+**Example**: `https://api.gurbaninow.com/line/1`
+
+Variable|Use
+:--|:--
+`:id`|Line ID  
 
 ## Get Ang
 
