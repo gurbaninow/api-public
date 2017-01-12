@@ -8,8 +8,6 @@ JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other project
 
 #### The API is located at https://api.gurbaninow.com.
 
-##### NOTE: You can access v1 API at https://api.gurbaninow.com/v1. Docs for the v1 of the API are present [here](https://github.com/GurbaniNow/gurbaninow-api/blob/master/README.md#api-v1-docs).
-
 # Documentation
 
 ## Search
@@ -188,40 +186,6 @@ Variable|Use
 - `47` - Guru Gobind Singh Ji
 - `48` - Bhai Nand Laal Ji
 - `49` - Bhai Gurdas Ji
-
-# API v1 Docs
-
-#### The API is located at [https://api.gurbaninow.com/v1/](https://api.gurbaninow.com/v1/). The API is a normal GET API, it does not use REST or SOAP.
-
-##### NOTE: This API is a wrapper for the v2 API using the v1 parameters. It is deprecated is only recomended for use in old applications that need to use the old [iGurbani v1](http://v1.igurbani.com/) query layout, eg. [GurbaniNow](https://gurbaninow.com/web).
-
-## Search
-
-| Variable | Use                                                                                                                                                              |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `1` to Search.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `q`      | The Actual Query, whatever is typed into the Search Box. Remember for Gurmukhi Searches, the API uses GuabniLipi/GurbaniAkhar keyset.                            |
-| `source`    | Set the Scripture to Search From.<br>`0` - All<br> `1` - SGGS<br> `2` - Vaaran<br> `3` - Dasam Granth and Amrit Keertan                                          |
-| `searchtype`   | Search Type<br> `0` - First Letter Start (Gurmukhi)<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)      |
-| `writer` | Set Writer - [Link Here for WriterID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#writerid)                                                                                                                        |
-| `raag`   | Set Raag - [Link Here for RaagID's](https://github.com/Sarabveer/gurbaninow/blob/master/API.md#raagid)                                                                                                                            |
-| `ang`   | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo      |
-| `results` | Set Shabad Results<br> `0` - 20 Results<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)                                                    |
-
-## Get Shabad
-
-| Variable   | Use                                                                                                                                                                  |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`     | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `shabadNo` | Set Shabad Number                                                                                                                                                    |
-
-## Get Ang
-
-| Variable | Use                                                                                                                                                                  |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `mode`   | This sets the `mode` for the API, there are three modes for the API. Set `mode` to `2` to Get Shabad.<br> `1` - Search<br> `2` - Get Shabad<br> `3` - Get Ang/Panna. |
-| `ang`    | Set Ang/Paana Number                                                                                                                                                 | 
-
 
 # Licence
 
