@@ -12,8 +12,8 @@ JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other project
 
 ## Search
 
-**URL**: `https://api.gurbaninow.com/search/:query`  
-**Example**: `https://api.gurbaninow.com/search/DDrgj/?source=G&searchtype=1`
+**URL**: `https://api.gurbaninow.com/v2/search/:query`  
+**Example**: `https://api.gurbaninow.com/v2/search/DDrgj/?source=G&searchtype=1`
 
 
 Variable|Use
@@ -28,8 +28,8 @@ Variable|Use
 
 ## Get Shabad
 
-**URL**: `https://api.gurbaninow.com/shabad/:id`  
-**Example**: `https://api.gurbaninow.com/shabad/3589`
+**URL**: `https://api.gurbaninow.com/v2/shabad/:id`  
+**Example**: `https://api.gurbaninow.com/v2/shabad/3589`
 
 Variable|Use
 :--|:--
@@ -37,8 +37,8 @@ Variable|Use
 
 ## Get Line
 
-**URL**: `https://api.gurbaninow.com/line/:id`  
-**Example**: `https://api.gurbaninow.com/line/1`
+**URL**: `https://api.gurbaninow.com/v2/line/:id`  
+**Example**: `https://api.gurbaninow.com/v2/line/1`
 
 Variable|Use
 :--|:--
@@ -46,11 +46,11 @@ Variable|Use
 
 ## Get Ang
 
-**URL**: `https://api.gurbaninow.com/ang/:page` 
+**URL**: `https://api.gurbaninow.com/v2/ang/:page` 
 
-**URL2**: `https://api.gurbaninow.com/ang/:page/:source`  
+**URL2**: `https://api.gurbaninow.com/v2/ang/:page/:source`  
 
-**Examples**: `https://api.gurbaninow.com/ang/917`, `https://api.gurbaninow.com/ang/2748/D`   
+**Examples**: `https://api.gurbaninow.com/v2/ang/917`, `https://api.gurbaninow.com/v2/ang/2748/D`   
 
 Variable|Use 
 :--|:--
@@ -59,13 +59,13 @@ Variable|Use
 
 ## Get Hukamnama
 
-**URL**: `https://api.gurbaninow.com/hukamnama`
+**URL**: `https://api.gurbaninow.com/v2/hukamnama`
 
 ##### NOTE: Hukamnama API Updates Daily at 8:30 PM Eastern Time
 
 ## Convert GurbaniAkhar/Lipi to Unicode
 
-**URL**: `https://api.gurbaninow.com/akhar/:query`
+**URL**: `https://api.gurbaninow.com/v2/akhar/:query`
 
 Variable|Use
 :--|:--
