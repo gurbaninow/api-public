@@ -3,7 +3,7 @@
 JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other projects.
 
 ### Used By
-[GurbaniNow](https://gurbaninow.com/web/) | [SikhJS](https://bogas04.github.io/SikhJS/) | [/r/sikh](https://www.reddit.com/r/Sikh/) 
+[GurbaniNow](https://search.gurbaninow.com) | [SikhJS](https://bogas04.github.io/SikhJS/) | [/r/sikh](https://www.reddit.com/r/Sikh/) 
 :--|:--|:--
 
 #### The API is located at https://api.gurbaninow.com.
@@ -57,7 +57,7 @@ Variable|Use
 `:ang`   | Set Ang/Paana Number (**REQUIRED**)
 `:source`| Sets which Source you want Shabads from: (**OPTIONAL**) <br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
 
-## Get Hukamnama
+## Get Hukamnama from Darbar Sahib, Amritsar
 
 **URL**: `https://api.gurbaninow.com/v2/hukamnama`
 
