@@ -57,11 +57,19 @@ Variable|Use
 `:ang`   | Set Ang/Paana Number (**REQUIRED**)
 `:source`| Sets which Source you want Shabads from: (**OPTIONAL**) <br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
 
-## Get Hukamnama from Darbar Sahib, Amritsar
+## Get Today's Hukamnama from Darbar Sahib, Amritsar
 
-**URL**: `https://api.gurbaninow.com/v2/hukamnama`
+**URL**: `https://api.gurbaninow.com/v2/hukamnama/today`
 
 ##### NOTE: Hukamnama API Updates Daily at 8:30 PM Eastern Time
+
+## Get Hukamnama Archives from Darbar Sahib, Amritsar
+
+**URL**: `https://api.gurbaninow.com/v2/hukamnama/:year/:month/:day`
+
+**Example**: `https://api.gurbaninow.com/v2/hukamnama/2017/1/1`
+
+##### NOTE: Hukamnama Archives only go back up to Year 2002.
 
 ## Convert GurbaniAkhar/Lipi to Unicode
 
