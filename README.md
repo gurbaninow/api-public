@@ -28,8 +28,8 @@ Variable|Use
 `writer`    | Set Writer **(Default is All Writers)** - [WriterIDs](#writerid)
 `raag`      | Set Raag **(Default is All Raags)** - [RaagIDs](#raagid)
 `ang`       | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo
-`results`   | Set count of results <br>20 Results **(DEFAULT)**<br> `1,2,3,4.....,100` - Custom Number of Results (100 Results Max)
-
+`results`| Set Count of Results **(DEFAULT 20, MAX 100)** <br /> In case skip is set, this will return results from the `skip` to `skip+results` results.
+`skip`| Skip Records **(DEFAULT 0)** <br /> For example, if you want 20 to 30 results, set skip=20 and results=10
 ## Get Shabad
 
 **URL**: `https://api.gurbaninow.com/v2/shabad/:id`  
