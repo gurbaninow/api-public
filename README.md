@@ -1,6 +1,8 @@
 # GurbaniNow API
 
-JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and other projects.
+Fast and Powerful JSON API used by [GurbaniNow Web](https://gurbaninow.com/web/) and many other projects.
+
+GurbaniNow API utilizes the [CloudFlare CDN](https://www.cloudflare.com/cdn/) to bring Gurbani all over the [world](https://www.cloudflare.com/network/) at lightning fast speeds!
 
 ### Used By
 [GurbaniNow](https://search.gurbaninow.com) | [SikhJS](https://bogas04.github.io/SikhJS/) | [/r/sikh](https://www.reddit.com/r/Sikh/) 
