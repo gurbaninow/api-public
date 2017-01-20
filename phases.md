@@ -3,7 +3,7 @@
 ### ✅ Phase 3: Build Public API
 ### 🔄 Phase 4: Fix Mistakes in GurbaniDB
 ##### 🔄 Phase 4.1: Move Mangals to Top
-##### 🔄 Phase 4.2: Add Bhai Manmohan Singh English Translations
+##### 🕒 Phase 4.2: Add Bhai Manmohan Singh English Translations
 ##### 🕒 Phase 4.3: Add Fareedkot Teeka
 ##### 🕒 Phase 4.4: Add Santhyia
 ### ✅ Phase 5: Release Proof-of-Concept Android App
