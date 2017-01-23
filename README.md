@@ -12,7 +12,7 @@ If you need help, have an issue, or would like to request an feature, please sub
 
 #### The API is located at https://api.gurbaninow.com.
 
-## API Status
+### API Status
 
 [SarabveerIT Services Status](https://status.sarabveer.me/)
 
