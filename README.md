@@ -12,6 +12,16 @@ If you need help, have an issue, or would like to request an feature, please sub
 
 #### The API is located at https://api.gurbaninow.com.
 
+## API Status
+
+[SarabveerIT Services Status](https://status.sarabveer.me/)
+
+# Stats
+
+Lines | Shabads | Words
+---------|-----------|-----------
+141,960 | 12,812 | 1,078,462
+
 # Documentation
 
 ## Search
