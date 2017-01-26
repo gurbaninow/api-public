@@ -1,4 +1,4 @@
-# GurbaniNow API ![badge](https://img.shields.io/badge/Powered%20By-GurbaniNow-blue.svg)
+# GurbaniNow API [![badge](https://img.shields.io/badge/Powered%20By-GurbaniNow-blue.svg)](https://github.com/GurbaniNow)
 
 :zap: Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
 
