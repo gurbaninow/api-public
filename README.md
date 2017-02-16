@@ -85,13 +85,23 @@ Variable|Use
 
 ##### NOTE: Hukamnama Archives only go back up to Year 2002.
 
-## Convert GurbaniAkhar/Lipi to Unicode
+## GurbaniAkhar/Unicode Converter
 
-**URL**: `https://api.gurbaninow.com/v2/akhar/:query`
+### GurbaniAkhar to Unicode 
+
+**URL**: `https://api.gurbaninow.com/v2/convert/unicode/:text`
 
 Variable|Use
 :--|:--
-`:query`|Gurbani Text to be Converted to Unicode    
+`:text`|GurbaniAkhar Text to be Converted to Unicode
+
+### Unicode to GurbaniAkhar
+
+**URL**: `https://api.gurbaninow.com/v2/convert/akhar/:text`
+
+Variable|Use
+:--|:--
+`:text`|Unicode Gurmukhi Text to be Converted to GurbaniAkhar  
 
 # Miscellaneous Information
 
