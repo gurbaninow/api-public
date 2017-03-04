@@ -32,7 +32,7 @@ Lines | Shabads | Words
 
 Variable|Use
 :--|:--
-`:query`    |The Actual Query, whatever is typed into the Search Box.<br> **INFO:** GurbaniAkhar Keyset and Unicode can be used for searching on `searchtype` `1` & `2`. `searchtype`: `3` only supports GurbaniAkhar.
+`:query`    |The Actual Query, whatever is typed into the Search Box.<br> **INFO:** GurbaniAkhar Keyset and Unicode can be used for searching on `searchtype`: `0` and `1`. `searchtype`: `2` only supports GurbaniAkhar.
 `source`    | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
 `searchtype`| Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)
 `writer`    | Set Writer **(Default is All Writers)** - [WriterIDs](#writerid)
