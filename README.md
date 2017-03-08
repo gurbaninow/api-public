@@ -1,10 +1,12 @@
 # GurbaniNow API [![badge](https://img.shields.io/badge/Powered%20By-GurbaniNow-blue.svg)](https://github.com/GurbaniNow)
 
-:zap: Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
+:zap: 🙏 Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
 
 GurbaniNow API utilizes the [CloudFlare CDN](https://www.cloudflare.com/cdn/) to bring Gurbani to developers all over the [world](https://www.cloudflare.com/network/) at lightning fast speeds!
 
 If you need help, have an issue, or would like to request an feature, please submit it [here](https://github.com/GurbaniNow/gurbaninow-api/issues/new)!
+
+#### The API is located at https://api.gurbaninow.com.
 
 ![alt text](https://i.imgur.com/3jmzSNa.jpg)
 
@@ -17,8 +19,6 @@ Lines | Shabads | Words
 ### Used By
 [GurbaniNow](https://search.gurbaninow.com) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
 :--|:--|:--
-
-#### The API is located at https://api.gurbaninow.com.
 
 ### API Status
 
