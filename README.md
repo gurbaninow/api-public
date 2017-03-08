@@ -1,6 +1,6 @@
 # GurbaniNow API [![badge](https://img.shields.io/badge/Powered%20By-GurbaniNow-blue.svg)](https://github.com/GurbaniNow)
 
-:zap: 🙏 Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
+⚡️ 🙏 Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
 
 GurbaniNow API utilizes the [CloudFlare CDN](https://www.cloudflare.com/cdn/) to bring Gurbani to developers all over the [world](https://www.cloudflare.com/network/) at lightning fast speeds!
 
