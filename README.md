@@ -6,6 +6,8 @@ GurbaniNow API utilizes the [CloudFlare CDN](https://www.cloudflare.com/cdn/) to
 
 If you need help, have an issue, or would like to request an feature, please submit it [here](https://github.com/GurbaniNow/gurbaninow-api/issues/new)!
 
+![alt text](https://i.imgur.com/3jmzSNa.jpg)
+
 ### Used By
 [GurbaniNow](https://search.gurbaninow.com) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
 :--|:--|:--
