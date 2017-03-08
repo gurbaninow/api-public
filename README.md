@@ -8,6 +8,12 @@ If you need help, have an issue, or would like to request an feature, please sub
 
 ![alt text](https://i.imgur.com/3jmzSNa.jpg)
 
+# Stats
+
+Lines | Shabads | Words
+---------|-----------|-----------
+141,960 | 12,812 | 1,078,462
+
 ### Used By
 [GurbaniNow](https://search.gurbaninow.com) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
 :--|:--|:--
@@ -17,12 +23,6 @@ If you need help, have an issue, or would like to request an feature, please sub
 ### API Status
 
 [SarabveerIT Services Status](https://status.sarabveer.me/)
-
-# Stats
-
-Lines | Shabads | Words
----------|-----------|-----------
-141,960 | 12,812 | 1,078,462
 
 # Documentation
 
