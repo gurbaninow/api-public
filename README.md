@@ -20,10 +20,6 @@ Lines | Shabads | Words
 [GurbaniNow](https://search.gurbaninow.com) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
 :--|:--|:--
 
-### API Status
-
-[SarabveerIT Services Status](https://status.sarabveer.me/)
-
 # Documentation
 
 ## Search
