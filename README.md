@@ -17,8 +17,8 @@ Lines | Shabads | Words
 141,960 | 12,812 | 1,078,462
 
 ### Used By
-[GurbaniNow](https://search.gurbaninow.com) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
-:--|:--|:--
+[GurbaniNow](https://search.gurbaninow.com) | [AKJ.Org](http://akj.org/dailyhukam.php) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
+:--|:--|:--|:--
 
 # Documentation
 
