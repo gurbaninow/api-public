@@ -1,6 +1,6 @@
 # GurbaniNow API [![badge](https://img.shields.io/badge/Powered%20By-GurbaniNow-blue.svg)](https://github.com/GurbaniNow)
 
-⚡️ 🙏 Fast and Powerful JSON API used by [GurbaniNow Search](https://search.gurbaninow.com) and many other projects.
+⚡️ 🙏 Fast and Powerful JSON API used by [GurbaniNow Search](https://gurbaninow.com) and many other projects.
 
 GurbaniNow API utilizes the [CloudFlare CDN](https://www.cloudflare.com/cdn/) to bring Gurbani to developers all over the [world](https://www.cloudflare.com/network/) at lightning fast speeds!
 
@@ -17,7 +17,7 @@ Lines | Shabads | Words
 141,960 | 12,812 | 1,078,462
 
 ### Used By
-[GurbaniNow](https://search.gurbaninow.com) | [AKJ.Org](http://akj.org/dailyhukam.php) | [/r/sikh](https://www.reddit.com/r/Sikh/) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism&hl=en)
+[GurbaniNow](https://gurbaninow.com) | [AKJ.Org](https://akj.org/dailyhukam.php) | [/r/sikh Hukamnama Bot](https://www.reddit.com/user/Hukumnama_Bot) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism)
 :--|:--|:--|:--
 
 # Documentation
@@ -31,13 +31,14 @@ Lines | Shabads | Words
 Variable|Use
 :--|:--
 `:query`    |The Actual Query, whatever is typed into the Search Box.<br> **INFO:** GurbaniAkhar Keyset and Unicode can be used for searching on `searchtype`: `0` and `1`. `searchtype`: `2` only supports GurbaniAkhar. **URL Encoding is Recommended**
-`source`    | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
+`source`    | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Guzals<br> `A` - Amrit Keertan<br> `U` - Uggardanti
 `searchtype`| Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)
 `writer`    | Set Writer **(Default is All Writers)** - [WriterIDs](#writerid)
 `raag`      | Set Raag **(Default is All Raags)** - [RaagIDs](#raagid)
 `ang`       | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo
 `results`| Set Count of Results **(DEFAULT 20, MAX 100)** <br /> In case skip is set, this will return results from the `skip` to `skip+results` results.
 `skip`| Skip Records **(DEFAULT 0)** <br /> For example, if you want 20 to 30 results, set skip=20 and results=10
+
 ## Get Shabad
 
 **URL**: `https://api.gurbaninow.com/v2/shabad/:id`  
@@ -67,7 +68,7 @@ Variable|Use
 Variable|Use 
 :--|:--
 `:ang`   | Set Ang/Paana Number (**REQUIRED**)
-`:source`| Sets which Source you want Shabads from: (**OPTIONAL**) <br> `all` - All Sources<br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Vaaran<br> `A` - Amrit Keertan<br> `U` - Uggardanti
+`:source`| Sets which Source you want Shabads from: (**OPTIONAL**) <br> `G` - Guru Granth Sahib Ji **(DEFAULT)**<br> `D` - Dasam Granth Sahib<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Guzals<br> `A` - Amrit Keertan<br> `U` - Uggardanti
 
 ## Get Today's Hukamnama from Darbar Sahib, Amritsar
 
