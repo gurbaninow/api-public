@@ -1,0 +1,69 @@
+## RaagID/ChapterID
+
+- `1` - Jap
+- `2` - So Dar
+- `3` - So Purakh
+- `4` - Sohila
+- `5` - Siree Raag
+- `6` - Raag Maajh
+- `7` - Raag Gauree
+- `8` - Raag Aasaa
+- `9` - Raag Gujri
+- `10` - Raag Dayv Gandhaaree
+- `11` - Raag Bihaagraa
+- `12` - Raag Vadhans
+- `13` - Raag Sorath
+- `14` - Raag Dhanaasree
+- `15` - Raag Jaithsree
+- `16` - Raag Todee
+- `17` - Raag Baihaaree
+- `18` - Raag Tilang
+- `19` - Raag Soohee
+- `20` - Raag Bilaaval
+- `21` - Raag Gond
+- `22` - Raag Raamkalee
+- `23` - Raag Nat Naaraayan
+- `24` - Raag Maalee Gauraa
+- `25` - Raag Maaroo
+- `26` - Raag Tukhaari
+- `27` - Raag Kaydaaraa
+- `28` - Raag Bhairao
+- `29` - Raag Basant
+- `30` - Raag Saarang
+- `31` - Raag Malaar
+- `32` - Raag Kaanraa
+- `33` - Raag Kalyaan
+- `34` - Raag Prabhaatee
+- `35` - Raag Jaijaavantee
+- `36` - Salok Sehshritee
+- `37` - Fifth Mehl, Gaathaa
+- `38` - Phunhay Fifth Mehl
+- `39` - Chaubolas Fifth Mehl
+- `40` - Salok Kabeer Jee
+- `41` - Salok Fareed Jee
+- `42` - Svaiyay Mehl 5
+- `43` - Salok Vaaraan Thay Vadheek
+- `44` - Salok Mehl 9
+- `45` - Mundhaavanee Fifth Mehl
+- `46` - Vaaran
+- `47`  - Amrit Keertan
+- `48` - Jaap
+- `49` - Akaal Ustaat
+- `50` - Bachittar Natak
+- `51` - Ukat Bilaas
+- `52` - Chandi Charittar
+- `53` - Chandi Di Vaar
+- `54` - Giaan Parbodh
+- `55` - 24 Avtaar
+- `56` - Brahma Avtaar
+- `57` - Rudra Avtaar
+- `58` - Paaras Naath Rudra
+- `59` - Shabad Hazare 10
+- `60` - 33 Savaiye
+- `61` - Khalsa Mahima
+- `62` - Shastar Naam Maalaa
+- `63` - Charitropakhyan
+- `64` - Benti Choupai (Charitropakhyan)
+- `65` - Zafarnama
+- `66` - Hakiats
+- `67` - Uggardanti
