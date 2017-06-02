@@ -1,0 +1,43 @@
+## WriterID
+
+- `1` - Guru Nanak Dev Ji
+- `2` - Guru Angad Dev Ji
+- `3` - Guru Amar Daas Ji
+- `4` - Guru Raam Daas Ji
+- `5` - Guru Arjan Dev Ji
+- `6` - Guru Tegh Bahaadur Ji
+- `7` - Bhagat Bheekhan Ji
+- `8` - Bhagat Beni Ji
+- `9` - Bhagat Dhannaa Ji
+- `10` - Bhagat Trilochan Ji
+- `11` - Bhagat Jaidev Ji
+- `12` - Bhagat Kabeer Ji
+- `13` - Bhagat Naam Dev Ji
+- `14` - Bhagat Peepaa Ji
+- `15` - Bhagat Parmaanand Ji
+- `16` - Bhagat Ravi Daas Ji
+- `17` - Bhagat Raamaanand Ji
+- `18` - Bhagat Surdaas Ji
+- `19` - Bhagat Saadhnaa Ji
+- `20` - Bhagat Sain Ji
+- `21` - Bhagat Sheikh Fareed Ji
+- `22` - Bhai Gurdaas Ji
+- `30` - Bhatt Bal
+- `31` - Bhatt Sathaa & Balvand
+- `32` - Bhatt (Baba) Sundar
+- `33` - Bhatt Gayandh
+- `34` - Bhatt Harbans
+- `35` - Bhatt Bhikhaa
+- `37` - Bhatt Jal Jaalap
+- `38` - Bhatt Keerath 
+- `39` - Bhatt Kal
+- `40` - Bhatt Kall Sahaar
+- `41` - Bhatt Kal2
+- `42` - Bhatt Mathuraa
+- `43` - Bhai Mardana
+- `44` - Bhatt Nal
+- `45` - Bhatt Sal
+- `46` - Bhatt Tal
+- `47` - Guru Gobind Singh Ji
+- `48` - Bhai Nand Laal Ji
+- `49` - Bhai Gurdas Ji
