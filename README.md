@@ -32,7 +32,7 @@ Variable|Use
 :--|:--
 `:query`    |The Actual Query, whatever is typed into the Search Box.<br> **INFO:** GurbaniAkhar Keyset and Unicode can be used for searching on `searchtype`: `0` and `1`. `searchtype`: `2` only supports GurbaniAkhar. **URL Encoding is Recommended**
 `source`    | Sets which Source you want Shabads from:<br> **Default is All Sources**<br> `G` - Guru Granth Sahib Ji<br> `D` - Sri Dasam Granth<br> `B` - Bhai Gurdas Ji Vaaran<br> `N` - Bhai Nand Lal Ji Guzals<br> `A` - Amrit Keertan<br> `U` - Uggardanti
-`searchtype`| Search Type<br> `0` - First Letter Start (Gurmukhi) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi)<br> `2` - Full Word (Gurmukhi)<br> `3` - Full Word (English)
+`searchtype`| Search Type<br> `0` - First Letter Start (Gurmukhi/Unicode) **(DEFAULT)**<br> `1` - First Letter Anywhere (Gurmukhi/Unicode)<br> `2` - Full Word/Line (Gurmukhi)<br> `3` - Full Word/Line (English)<br> `4` - Search All Words (Gurmukhi)<br> `5` - Search All Words (English)<br> `6` - Search Any Words (Gurmukhi)<br> `7` - Search Any Words (English)
 `writer`    | Set Writer **(Default is All Writers)** - [WriterID List](https://github.com/GurbaniNow/gurbaninow-api/blob/master/WriterID.md)
 `raag`      | Set Raag **(Default is All Raags)** - [RaagID List](https://github.com/GurbaniNow/gurbaninow-api/blob/master/RaagID.md)
 `ang`       | Ang/PageNo<br>Leave Empty if Not Used<br> `1,2,3,4,....` - Specify Ang/PageNo
