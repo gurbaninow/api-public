@@ -10,12 +10,6 @@ If you need help, have an issue, or would like to request an feature, please sub
 
 ![alt text](https://i.imgur.com/3jmzSNa.jpg)
 
-# Stats
-
-Lines | Shabads | Words
----------|-----------|-----------
-141,960 | 12,812 | 1,078,462
-
 ### Used By
 [GurbaniNow](https://gurbaninow.com) | [AKJ.Org](https://akj.org/dailyhukam.php) | [/r/sikh Hukamnama Bot](https://www.reddit.com/user/Hukumnama_Bot) | [Nitnem App](https://play.google.com/store/apps/details?id=parwinder.singh.sikhism)
 :--|:--|:--|:--
