@@ -68,7 +68,9 @@ Variable|Use
 
 **URL**: `https://api.gurbaninow.com/v2/hukamnama/today`
 
-##### NOTE: Hukamnama API Updates Daily at 9:30 PM Eastern Time
+##### NOTE: Hukamnama API Updates Daily at 9:00 PM Eastern Time
+
+###### Sometimes the Hukamnama Source does not have the Hukamnama for the Day at 9:00 PM, the API will re-update around 12:00 AM to make sure the Hukamnama for the Day has been updated.
 
 ## Get Hukamnama Archives from Darbar Sahib, Amritsar
 
