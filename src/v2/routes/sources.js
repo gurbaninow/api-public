@@ -6,9 +6,23 @@ import { toUnicode } from 'gurmukhi-utils'
  */
 const getSources = () => Sources
   .query()
-  .then( sources => sources.map( source => {
-    source.nameUnicode = toUnicode( source.nameGurmukhi )
-    return source
-  } ) )
+  .then( sources => {
+    const sourcesList = []
+    sources.forEach( source => {
+      sourcesList.push( {
+        id: source.id,
+        akhar: source.nameGurmukhi,
+        unicode: toUnicode( source.nameGurmukhi ),
+        english: source.nameEnglish,
+        length: source.length,
+        pageName: {
+          akhar: source.pageNameGurmukhi,
+          unicode: toUnicode( source.pageNameGurmukhi ),
+          english: source.pageNameEnglish,
+        },
+      } )
+    } )
+    return { sources: sourcesList }
+  } )
 
 export default getSources
