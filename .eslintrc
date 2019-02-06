@@ -54,6 +54,12 @@
     "space-in-parens": [
       "error",
       "always"
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
     ]
   }
 }
