@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import getSources from './routes/getSources'
-import getLinesOnPage from './routes/getLinesOnPage'
+import getSources from './routes/sources'
+import getPage from './routes/page'
 
 const api = Router()
 
@@ -22,14 +22,14 @@ api.get( '/sources', ( _, res ) => (
 
 // Get Ang from Sri Guru Granth Sahib Ji
 api.get( '/ang/:pageId', ( { params: { pageId } }, res ) => (
-  getLinesOnPage( 1, pageId )
+  getPage( 1, pageId )
     .then( lines => res.json( lines ) )
     .catch( err => res.status( 400 ).json( err ) )
 ) )
 
 // Get Page of specific source
 api.get( '/ang/:pageId/:sourceId', ( { params: { sourceId, pageId } }, res ) => (
-  getLinesOnPage( sourceId, pageId )
+  getPage( sourceId, pageId )
     .then( lines => res.json( lines ) )
     .catch( err => res.status( 400 ).json( err ) )
 ) )
