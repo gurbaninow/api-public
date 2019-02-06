@@ -16,13 +16,17 @@ const getPage = ( sourceId, pageNum ) => Lines.query()
   .where( 'source_page', pageNum )
   .andWhere( 'shabads.source_id', sourceId )
   .orderBy( 'order_id' )
+  .then( lines => lines.map( line => {
+    line.gurmukhi = line.gurmukhi.replace( /[;,.]/ug, '' )
+    return line
+  } ) )
   .then( lines => {
     const pageLines = {
       pageno: pageNum,
       source: {
         id: sourceId,
-        akhar: lines[ 0 ].shabad.section.source.nameGurmukhi.replace( /[;,.]/ug, '' ),
-        unicode: toUnicode( lines[ 0 ].shabad.section.source.nameGurmukhi.replace( /[;,.]/ug, '' ) ),
+        akhar: lines[ 0 ].shabad.section.source.nameGurmukhi,
+        unicode: toUnicode( lines[ 0 ].shabad.section.source.nameGurmukhi ),
         english: lines[ 0 ].shabad.section.source.nameEnglish,
         length: lines[ 0 ].shabad.section.source.length,
         pageName: {
