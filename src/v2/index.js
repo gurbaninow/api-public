@@ -18,28 +18,40 @@ api.get( '/', ( req, res ) => (
 api.get( '/sources', ( _, res ) => (
   getSources()
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( { error: true, ...err } ) )
+    .catch( ( { message } ) => res.status( 400 ).json( { error: true, message } ) )
 ) )
 
 // Get Shabad from id
-api.get( '/shabad/:shabadId', ( { params: { shabadId } }, res ) => (
-  getShabad( shabadId )
+api.get( '/shabad/:shabadId', ( req, res ) => (
+  getShabad( req.params.shabadId )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( { error: true, ...err } ) )
+    .catch( ( { message } ) => res.status( 400 ).json( {
+      params: req.params,
+      error: true,
+      message,
+    } ) )
 ) )
 
 // Get Ang from Sri Guru Granth Sahib Ji
-api.get( '/ang/:pageNum', ( { params: { pageNum } }, res ) => (
-  getPage( 1, pageNum )
+api.get( '/ang/:pageNum', ( req, res ) => (
+  getPage( 1, req.params.pageNum )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( { pageno: pageNum, error: true, ...err } ) )
+    .catch( ( { message } ) => res.status( 400 ).json( {
+      params: req.params,
+      error: true,
+      message,
+    } ) )
 ) )
 
 // Get Page of specific source
-api.get( '/ang/:pageNum/:sourceId', ( { params: { pageNum, sourceId } }, res ) => (
-  getPage( sourceId, pageNum )
+api.get( '/ang/:pageNum/:sourceId', ( req, res ) => (
+  getPage( req.params.sourceId, req.params.pageNum )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( { pageno: pageNum, error: true, ...err } ) )
+    .catch( ( { message } ) => res.status( 400 ).json( {
+      params: req.params,
+      error: true,
+      message,
+    } ) )
 ) )
 
 export default api
