@@ -1,6 +1,7 @@
 import { Shabads } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
+import { textLarivaar, stripVishraams } from '../tools'
 import translationSources from '../translationSources'
 
 /**
@@ -49,46 +50,57 @@ const getShabad = shabadId => Shabads.query()
       },
       shabad: [],
     }
-    shabad.lines.forEach( ( line, index ) => {
+    shabad.lines.forEach( line => {
+      let english = ''
+      let punjabi = { akhar: '', unicode: '' }
+      let spanish = ''
+      line.translations.forEach( translation => {
+        if ( translation.translationSource.language.id === 1 ) {
+          english = translation.translation
+        }
+        if ( translation.translationSource.language.id === 2 ) {
+          punjabi = {
+            akhar: toAscii( translation.translation ),
+            unicode: translation.translation,
+          }
+        }
+        if ( translation.translationSource.language.id === 3 ) {
+          spanish = translation.translation
+        }
+      } )
+
       shabadLines.shabad.push( {
         line: {
           id: line.id,
           gurmukhi: {
-            akhar: line.gurmukhi.replace( /[;,.]/ug, '' ),
-            unicode: toUnicode( line.gurmukhi ).replace( /[;,.]/ug, '' ),
+            akhar: stripVishraams( line.gurmukhi ),
+            unicode: toUnicode( stripVishraams( line.gurmukhi ) ),
           },
           larivaar: {
-            akhar: line.gurmukhi
-              .replace( /\s/ug, '\u200B' ),
-            unicode: toUnicode( line.gurmukhi )
-              .replace( /\s/ug, '\u200B' ),
+            akhar: textLarivaar( stripVishraams( line.gurmukhi ) ),
+            unicode: textLarivaar( toUnicode( stripVishraams( line.gurmukhi ) ) ),
           },
           translation: {
             english: {
-              default: '',
+              default: english,
             },
             punjabi: {
-              default: {
-                akhar: '',
-                unicode: '',
-              },
+              default: punjabi,
             },
-            spanish: '',
+            spanish,
           },
           transliteration: {
             english: {
-              text: line.transliterations[ 0 ].transliteration
-                .replace( /[;,.]/ug, '' ),
-              larivaar: line.transliterations[ 0 ].transliteration
-                .replace( /[;,.]/ug, '' )
-                .replace( /\s/ug, '\u200B' ),
+              text: stripVishraams( line.transliterations[ 0 ].transliteration ),
+              larivaar: textLarivaar(
+                stripVishraams( line.transliterations[ 0 ].transliteration ),
+              ),
             },
             devanagari: {
-              text: line.transliterations[ 1 ].transliteration
-                .replace( /[;,.]/ug, '' ),
-              larivaar: line.transliterations[ 1 ].transliteration
-                .replace( /[;,.]/ug, '' )
-                .replace( /\s/ug, '\u200B' ),
+              text: stripVishraams( line.transliterations[ 1 ].transliteration ),
+              larivaar: textLarivaar(
+                stripVishraams( line.transliterations[ 0 ].transliteration ),
+              ),
             },
           },
           linenum: line.sourceLine,
@@ -97,20 +109,6 @@ const getShabad = shabadId => Shabads.query()
             unicode: toUnicode( line.firstLetters ),
           },
         },
-      } )
-      line.translations.forEach( translation => {
-        if ( translation.translationSource.language.id === 1 ) {
-          shabadLines.shabad[ index ].line.translation.english.default = translation.translation
-        }
-        if ( translation.translationSource.language.id === 2 ) {
-          shabadLines.shabad[ index ].line.translation.punjabi.default = {
-            akhar: toAscii( translation.translation ),
-            unicode: translation.translation,
-          }
-        }
-        if ( translation.translationSource.language.id === 3 ) {
-          shabadLines.shabad[ index ].line.translation.spanish = translation.translation
-        }
       } )
     } )
     return shabadLines

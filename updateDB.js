@@ -72,6 +72,7 @@ export const checkUpdates = async () => {
 /**
  * Provides a recursive update checking function.
  * Checks for updates at constant interval.
+ * @async
  */
 const updateLoop = async () => {
   await checkUpdates()
