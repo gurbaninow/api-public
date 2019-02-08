@@ -5,8 +5,6 @@ import getShabad from './routes/shabad'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
 
-import errorResponse from './errorResponse'
-
 const api = Router()
 
 // Root response
@@ -18,43 +16,43 @@ api.get( '/', ( req, res ) => (
 ) )
 
 // Get List of Sources
-api.get( '/sources', ( req, res ) => (
+api.get( '/sources', ( _, res, next ) => (
   getSources()
     .then( result => res.json( ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+    .catch( next )
 ) )
 
 // Get Shabad from id
-api.get( '/shabad/:shabadId', ( req, res ) => (
+api.get( '/shabad/:shabadId', ( req, res, next ) => (
   getShabad( req.params.shabadId )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+    .catch( next )
 ) )
 
 // Get Hukamnama from Sri Darbar Sahib
 api.get( '/hukamnama', ( _, res ) => res.redirect( 'hukamnama/today' ) )
 
 // Get Today's Hukamnama from Sri Darbar Sahib
-api.get( '/hukamnama/today', ( req, res ) => {
+api.get( '/hukamnama/today', ( _, res, next ) => {
   getHukamnama()
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+    .catch( next )
 } )
 
 // Get Hukamnama Archive from Sri Darbar Sahib
-api.get( '/hukamnama/:year/:month/:date', ( req, res ) => {
+api.get( '/hukamnama/:year/:month/:date', ( req, res, next ) => {
   const { params: { year, month, date } } = req
 
   getHukamnama( new Date( year, month - 1, date ) )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+    .catch( next )
 } )
 
 // Get Ang from Sri Guru Granth Sahib Ji
-api.get( '/ang/:pageNum', ( req, res ) => (
+api.get( '/ang/:pageNum', ( req, res, next ) => (
   getPage( req.query.source, req.params.pageNum )
     .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+    .catch( next )
 ) )
 
 // Get Page of specific Source (Depricated)

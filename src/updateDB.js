@@ -3,7 +3,7 @@ import { manifest, extract } from 'pacote'
 import importFresh from 'import-fresh'
 import { knex } from '@shabados/database'
 
-import { dependencies } from './package.json'
+import { dependencies } from '../package.json'
 
 const databasePackage = `@shabados/database@${dependencies[ '@shabados/database' ]}`
 

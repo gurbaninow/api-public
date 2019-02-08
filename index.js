@@ -4,7 +4,8 @@ import helmet from 'helmet'
 import compression from 'compression'
 
 import api from './src'
-import updateDB from './updateDB'
+import errorHandler from './src/errorHandler'
+import updateDB from './src/updateDB'
 
 console.log( 'GurbaniNow API starting...' )
 
@@ -17,6 +18,7 @@ app.use( helmet( {
 app.use( compression() )
 app.set( 'etag', 'weak' )
 app.use( api )
+app.use( errorHandler )
 
 // Start Express server
 console.log( 'Setting up Express...' )
