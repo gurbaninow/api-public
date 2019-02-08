@@ -6,10 +6,10 @@ import translationSources from '../translationSources'
 
 /**
  * Get all the lines on a page for a source.
- * @param {number} sourceId The ID of the source to use.
+ * @param {number} [sourceId=1] The ID of the source to use, default is Sri Guru Granth Sahib Ji.
  * @param {number} pageNum The page in the source to retrieve all lines from.
  */
-const getPage = ( sourceId, pageNum ) => Lines.query()
+const getPage = ( sourceId = 1, pageNum ) => Lines.query()
   .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
   .eager( 'shabad.[section.source, writer]' )
   .withTranslations( translationSources )

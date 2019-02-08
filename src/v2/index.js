@@ -52,16 +52,14 @@ api.get( '/hukamnama/:year/:month/:date', ( req, res ) => {
 
 // Get Ang from Sri Guru Granth Sahib Ji
 api.get( '/ang/:pageNum', ( req, res ) => (
-  getPage( 1, req.params.pageNum )
+  getPage( req.query.source, req.params.pageNum )
     .then( result => res.json( { ...result, error: false } ) )
     .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
 ) )
 
-// Get Page of specific source
+// Get Page of specific Source (Depricated)
 api.get( '/ang/:pageNum/:sourceId', ( req, res ) => (
-  getPage( req.params.sourceId, req.params.pageNum )
-    .then( result => res.json( { ...result, error: false } ) )
-    .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
+  res.redirect( `/v2/ang/${req.params.pageNum}?source=${req.params.sourceId}` )
 ) )
 
 export default api
