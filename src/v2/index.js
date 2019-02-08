@@ -5,7 +5,7 @@ import getShabad from './routes/shabad'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
 
-import { errorResponse } from './tools'
+import errorResponse from './errorResponse'
 
 const api = Router()
 
