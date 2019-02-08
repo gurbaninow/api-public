@@ -4,15 +4,10 @@
  * @param {object} error JavaScript Error Constructor
  * @returns {object} Formatted Error Data
  */
-export const errorResponse = ( req, err ) => ( {
+export const errorResponse = ( { path, method, params, query }, { message } ) => ( {
   error: true,
-  request: {
-    path: req.path,
-    method: req.method,
-    params: req.params,
-    query: req.query,
-  },
-  message: err.message,
+  request: { path, method, params, query },
+  message,
 } )
 
 /**

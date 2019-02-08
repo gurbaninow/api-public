@@ -32,9 +32,7 @@ api.get( '/shabad/:shabadId', ( req, res ) => (
 ) )
 
 // Get Hukamnama from Sri Darbar Sahib
-api.get( '/hukamnama', ( _, res ) => (
-  res.redirect( 'hukamnama/today' )
-) )
+api.get( '/hukamnama', ( _, res ) => res.redirect( 'hukamnama/today' ) )
 
 // Get Today's Hukamnama from Sri Darbar Sahib
 api.get( '/hukamnama/today', ( req, res ) => {
@@ -45,7 +43,9 @@ api.get( '/hukamnama/today', ( req, res ) => {
 
 // Get Hukamnama Archive from Sri Darbar Sahib
 api.get( '/hukamnama/:year/:month/:date', ( req, res ) => {
-  getHukamnama( new Date( req.params.year, req.params.month - 1, req.params.date ) )
+  const { params: { year, month, date } } = req
+
+  getHukamnama( new Date( year, month - 1, date ) )
     .then( result => res.json( { ...result, error: false } ) )
     .catch( err => res.status( 400 ).json( errorResponse( req, err ) ) )
 } )

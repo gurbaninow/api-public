@@ -9,17 +9,14 @@ import updateDB from './updateDB'
 console.log( 'GurbaniNow API starting...' )
 
 // Set up Express server
-let app = express()
+const app = express()
 app.use( cors() )
 app.use( helmet( {
   frameguard: false,
 } ) )
 app.use( compression() )
 app.set( 'etag', 'weak' )
-
-// Setup API Routes
-const API = api( app )
-app = new API()
+app.use( api )
 
 // Start Express server
 console.log( 'Setting up Express...' )

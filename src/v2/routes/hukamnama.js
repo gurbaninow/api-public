@@ -1,9 +1,9 @@
 import { URL, URLSearchParams } from 'url'
 import { Shabads } from '@shabados/database'
 import { getNanakshahiDate, getPanchang } from 'nanakshahi'
+import { toUnicode, toAscii } from 'gurmukhi-utils'
 import fetch from 'node-fetch'
 import parser from 'fast-xml-parser'
-import { toUnicode, toAscii } from 'gurmukhi-utils'
 import months from 'months'
 import days from 'days'
 
@@ -29,10 +29,11 @@ const getHukamnama = ( date = false ) => {
     .then( res => res.text() )
     .then( body => parser.parse( body ) )
     .then( ( { results } ) => results )
-    .then( hukamData => {
+    // eslint-disable-next-line camelcase
+    .then( ( { hukam_date, sids } ) => {
       let hukamDate
       try {
-        hukamDate = new Date( Date.parse( hukamData.hukam_date ) )
+        hukamDate = new Date( Date.parse( hukam_date ) )
       } catch ( e ) {
         throw new Error( `Error with SikhNet Source. Internal error: ${e.message}` )
       }
@@ -42,11 +43,10 @@ const getHukamnama = ( date = false ) => {
         throw new Error( 'Hukamnama not available for this day.' )
       }
 
-      let hukamPromise = Shabads.query()
-      hukamData.sids.toString().split( ',' ).forEach( shabadId => {
-        hukamPromise = hukamPromise.orWhere( 'shabads.sttm_id', parseInt( shabadId, 10 ) )
-      } )
-      hukamPromise = hukamPromise
+      const hukamPromise = sids
+        .toString()
+        .split( ',' )
+        .reduce( ( query, shabadId ) => query.orWhere( 'shabads.sttm_id', +shabadId ), Shabads.query() )
         .eager( '[writer, section, source, lines]' )
         .withTranslations( translationSources )
         .withTransliterations( [ 1, 4 ] )
@@ -60,28 +60,24 @@ const getHukamnama = ( date = false ) => {
         nanakshahiDate = getNanakshahiDate( hukam.date )
       } catch ( e ) {
         // Use Bikrami Calendar for date before 1 Chet, 535 NS (Nanakshahi Adoption)
-        const { gregorianDate, solarDate } = getPanchang( date )
+        const { solarDate } = getPanchang( date )
         solarDate.englishDate.year -= 1525
         solarDate.punjabiDate.year = toUnicode( solarDate.englishDate.year.toString() )
-        nanakshahiDate = { gregorianDate, ...solarDate }
+        nanakshahiDate = { ...solarDate }
       }
 
-      const firstShabad = hukam.shabads[ 0 ]
-      const shabadIds = []
-      let count = 0
-      hukam.shabads.forEach( shabad => {
-        shabadIds.push( shabad.id )
-        count += shabad.lines.length
-      } )
+      const [ firstShabad ] = hukam.shabads
+      const shabadIds = hukam.shabads.map( ( { id } ) => id )
+      const count = hukam.shabads.reduce( ( acc, { lines } ) => acc + lines.length, 0 )
 
       const hukamLines = {
         date: {
           gregorian: {
-            month: months[ nanakshahiDate.gregorianDate.getMonth() ],
-            monthno: nanakshahiDate.gregorianDate.getMonth() + 1,
-            date: nanakshahiDate.gregorianDate.getDate(),
-            year: nanakshahiDate.gregorianDate.getFullYear(),
-            day: days[ nanakshahiDate.gregorianDate.getDay() ],
+            month: months[ hukam.date.getMonth() ],
+            monthno: hukam.date.getMonth() + 1,
+            date: hukam.date.getDate(),
+            year: hukam.date.getFullYear(),
+            day: days[ hukam.date.getDay() ],
           },
           nanakshahi: {
             english: {
