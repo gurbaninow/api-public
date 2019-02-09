@@ -2,6 +2,7 @@ import { Router } from 'express'
 
 import getSources from './routes/sources'
 import getShabad from './routes/shabad'
+import getLine from './routes/line'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
 
@@ -25,6 +26,13 @@ api.get( '/sources', ( _, res, next ) => (
 // Get Shabad from id
 api.get( '/shabad/:shabadId', ( req, res, next ) => (
   getShabad( req.params.shabadId )
+    .then( result => res.json( { ...result, error: false } ) )
+    .catch( next )
+) )
+
+// Get Line from id
+api.get( '/line/:lineId', ( req, res, next ) => (
+  getLine( req.params.lineId )
     .then( result => res.json( { ...result, error: false } ) )
     .catch( next )
 ) )
