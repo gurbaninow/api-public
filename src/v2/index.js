@@ -20,7 +20,7 @@ api.get( '/', ( req, res ) => (
 // Get List of Sources
 api.get( '/sources', ( _, res, next ) => (
   getSources()
-    .then( result => res.json( ) )
+    .then( result => res.json( result ) )
     .catch( next )
 ) )
 
