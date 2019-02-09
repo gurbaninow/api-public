@@ -4,12 +4,13 @@
  * @param {object} error JavaScript Error Constructor
  * @returns {object} Formatted Error Data
  */
-const errorHandler = ( { message }, { path, method, params, query }, res, next ) => (
+const errorHandler = ( { message }, { method, path, query }, res, next ) => {
   res.status( 400 ).json( {
     error: true,
-    request: { path, method, params, query },
+    request: { method, path, query },
     message,
   } )
-)
+  next()
+}
 
 export default errorHandler
