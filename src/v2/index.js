@@ -5,6 +5,7 @@ import getShabad from './routes/shabad'
 import getLine from './routes/line'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
+import convertText from './routes/convert'
 
 const api = Router()
 
@@ -67,5 +68,8 @@ api.get( '/ang/:pageNum', ( req, res, next ) => (
 api.get( '/ang/:pageNum/:sourceId', ( req, res ) => (
   res.redirect( `/v2/ang/${req.params.pageNum}?source=${req.params.sourceId}` )
 ) )
+
+// Converter
+api.get( '/convert/:type/:text', ( req, res ) => res.json( convertText( req.params.type, req.params.text ) ) )
 
 export default api
