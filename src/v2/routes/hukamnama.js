@@ -18,8 +18,13 @@ import translationSources from '../translationSources'
  * @async
  */
 const getHukamnama = async ( date = false ) => {
-  const hukamUrl = new URL( 'http://www.sikhnet.com/webapps/gmcws/hukam.php' )
+  // Hukam Archives start from 2002
+  if ( date && date.getFullYear() < 2002 ) {
+    throw new RangeError( 'Hukamnama Archives are not available before 2002.' )
+  }
 
+  // Build URL
+  const hukamUrl = new URL( 'http://www.sikhnet.com/webapps/gmcws/hukam.php' )
   if ( date ) {
     hukamUrl.search = new URLSearchParams( {
       date: date.toISOString().split( 'T' )[ 0 ],
@@ -38,9 +43,7 @@ const getHukamnama = async ( date = false ) => {
   } catch ( e ) {
     throw new Error( `Error with SikhNet Source. Internal error: ${e.message}` )
   }
-  if ( date && date.getFullYear() < 2002 ) {
-    throw new Error( 'Hukamnama Archives not available before 2002.' )
-  } else if ( date && date.getDate() !== hukamDate.getDate() ) {
+  if ( date && date.getDate() !== hukamDate.getDate() ) {
     throw new Error( 'Hukamnama not available for this day.' )
   }
 
