@@ -1,7 +1,7 @@
 import { Banis } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams } from '../tools'
+import { textLarivaar, stripVishraams, getTranslation } from '../tools'
 import translationSources from '../translationSources'
 
 /**
@@ -88,19 +88,15 @@ export const getBaniLines = async baniId => {
         },
         translation: {
           english: {
-            default: line.translations.find( (
-              ( { translationSource: { language: { id } } } ) => id === 1 ) ).translation,
+            default: getTranslation( line.translations, 1 ),
           },
           punjabi: {
             default: {
-              akhar: toAscii( line.translations.find( (
-                ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation ),
-              unicode: line.translations.find( (
-                ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation,
+              akhar: toAscii( getTranslation( line.translations, 2 ) ),
+              unicode: getTranslation( line.translations, 2 ),
             },
           },
-          spanish: line.translations.find( (
-            ( { translationSource: { language: { id } } } ) => id === 3 ) ).translation,
+          spanish: getTranslation( line.translations, 3 ),
         },
         transliteration: {
           english: {

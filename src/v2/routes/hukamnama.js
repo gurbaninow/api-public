@@ -7,7 +7,7 @@ import parser from 'fast-xml-parser'
 import months from 'months'
 import days from 'days'
 
-import { textLarivaar, stripVishraams } from '../tools'
+import { textLarivaar, stripVishraams, getTranslation } from '../tools'
 import translationSources from '../translationSources'
 
 /**
@@ -152,19 +152,15 @@ const getHukamnama = async ( date = false ) => {
       },
       translation: {
         english: {
-          default: translations.find( (
-            ( { translationSource: { language: { id } } } ) => id === 1 ) ).translation,
+          default: getTranslation( translations, 1 ),
         },
         punjabi: {
           default: {
-            akhar: toAscii( translations.find( (
-              ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation ),
-            unicode: translations.find( (
-              ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation,
+            akhar: toAscii( getTranslation( translations, 2 ) ),
+            unicode: getTranslation( translations, 2 ),
           },
         },
-        spanish: translations.find( (
-          ( { translationSource: { language: { id } } } ) => id === 3 ) ).translation,
+        spanish: getTranslation( translations, 3 ),
       },
       transliteration: {
         english: {
