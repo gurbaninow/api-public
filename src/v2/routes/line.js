@@ -1,7 +1,7 @@
 import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams } from '../tools'
+import { textLarivaar, stripVishraams, getTranslation } from '../tools'
 import translationSources from '../translationSources'
 
 /**
@@ -31,19 +31,15 @@ const getLine = async lineId => {
       },
       translation: {
         english: {
-          default: lineData.translations.find( (
-            ( { translationSource: { language: { id } } } ) => id === 1 ) ).translation,
+          default: getTranslation( lineData.translations, 1 ),
         },
         punjabi: {
           default: {
-            akhar: toAscii( lineData.translations.find( (
-              ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation ),
-            unicode: lineData.translations.find( (
-              ( { translationSource: { language: { id } } } ) => id === 2 ) ).translation,
+            akhar: toAscii( getTranslation( lineData.translations, 2 ) ),
+            unicode: getTranslation( lineData.translations, 2 ),
           },
         },
-        spanish: lineData.translations.find( (
-          ( { translationSource: { language: { id } } } ) => id === 3 ) ).translation,
+        spanish: getTranslation( lineData.translations, 3 ),
       },
       transliteration: {
         english: {
