@@ -6,6 +6,7 @@ import getLine from './routes/line'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
 import convertText from './routes/convert'
+import { getBanis, getBaniLines } from './routes/banis'
 
 const api = Router()
 
@@ -20,6 +21,20 @@ api.get( '/', ( req, res ) => (
 // Get List of Sources
 api.get( '/sources', ( _, res, next ) => (
   getSources()
+    .then( result => res.json( result ) )
+    .catch( next )
+) )
+
+// Get List of Baanis
+api.get( '/banis/', ( _, res, next ) => (
+  getBanis()
+    .then( result => res.json( result ) )
+    .catch( next )
+) )
+
+// Get List of Baanis
+api.get( '/banis/:baniId', ( req, res, next ) => (
+  getBaniLines( req.params.baniId )
     .then( result => res.json( result ) )
     .catch( next )
 ) )
