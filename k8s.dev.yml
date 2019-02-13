@@ -55,3 +55,5 @@ spec:
         backend:
           serviceName: api-dev-service
           servicePort: backend
+  tls:
+   - secretName: gurbaninow-tls-cert
