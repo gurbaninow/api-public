@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment:dev
+  namespace: gurbani-now
+  labels:
+    app: api:dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api:dev
+  template:
+    metadata:
+      labels:
+        app: api:dev
+    spec:
+      containers:
+        - image: gurbaninow/api:{{ IMAGE_TAG }}
+          name: api-backend:dev
+          env:
+            - name: PORT
+              value: "80"
+          ports:
+            - containerPort: 80
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service:dev
+  namespace: gurbani-now
+spec:
+  selector:
+    app: api:dev
+  ports:
+  - name: backend
+    port: 80
+    targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api:dev
+  namespace: gurbani-now
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - host: dev-api.gurbaninow.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api-service:dev
+          servicePort: backend
+  tls:
+   - secretName: gurbaninow-tls-cert

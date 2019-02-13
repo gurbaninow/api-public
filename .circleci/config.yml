@@ -1,0 +1,50 @@
+version: 2
+
+jobs:
+  build:backend-dev:
+    docker:
+      - image: circleci/node
+    steps:
+      # Enable Docker environment
+      - setup_remote_docker
+      # Fetch the source code
+      - checkout
+      # Log in to Docker Hub
+      - run: docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+      # Build the image, tagging it as latest
+      - run: docker build -t gurbaninow/api:${CIRCLE_SHA1} backend
+      # Push the image to Docker Hub
+      - run: docker push gurbaninow/api:${CIRCLE_SHA1}
+      # Tag the image as dev
+      - run: docker tag gurbaninow/api:${CIRCLE_SHA1} gurbaninow/api:dev
+      # Push the image to Docker Hub
+      - run: docker push gurbaninow/api:dev
+
+  deploy-dev:
+    docker:
+      - image: microsoft/azure-cli
+    steps:
+      # Fetch the source code
+      - checkout
+      # Log in to Azure
+      - run: az login --service-principal -u ${AZURE_USERNAME} -p ${AZURE_PASSWORD} --tenant ${AZURE_TENANT}
+      # Get kubernetes credentials
+      - run: az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${AZURE_CLUSTER_NAME}
+      # Install Kubernetes CLI
+      - run: az aks install-cli
+      # Update the k8s.yml with the commit tag
+      - run: sed -i "s#{{ IMAGE_TAG }}#${CIRCLE_SHA1}#g" k8s.dev.yml
+      # Pull the latest deployment with kubernetes
+      - run: kubectl apply -f k8s.dev.yml
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build:backend-dev:
+          filters:
+            branches:
+              only: dev
+      - deploy-dev:
+          requires:
+            - build:backend-dev
