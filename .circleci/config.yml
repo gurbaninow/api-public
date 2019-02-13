@@ -12,7 +12,7 @@ jobs:
       # Log in to Docker Hub
       - run: docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
       # Build the image, tagging it as latest
-      - run: docker build -t gurbaninow/api:${CIRCLE_SHA1} backend
+      - run: docker build -t gurbaninow/api:${CIRCLE_SHA1} .
       # Push the image to Docker Hub
       - run: docker push gurbaninow/api:${CIRCLE_SHA1}
       # Tag the image as dev
