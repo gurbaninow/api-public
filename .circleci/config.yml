@@ -29,9 +29,9 @@ jobs:
       # Install Kubernetes CLI
       - run: az aks install-cli
       # Update the k8s.yml with the commit tag
-      - run: sed -i "s#{{ IMAGE_TAG }}#${CIRCLE_SHA1}#g" k8s.yml
+      - run: sed -i "s#{{ IMAGE_TAG }}#${CIRCLE_SHA1}#g" k8s.dev.yml
       # Pull the latest deployment with kubernetes
-      - run: kubectl apply -f k8s.yml
+      - run: kubectl apply -f k8s.dev.yml
 
 workflows:
   version: 2
@@ -43,4 +43,4 @@ workflows:
               only: dev
       - deploy-dev:
           requires:
-            - build:backend
+            - build:backend-dev
