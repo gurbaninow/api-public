@@ -12,7 +12,7 @@ api.get( '/', ( req, res ) => (
     name: 'GurbaniNow API',
     version,
     docs: 'Visit https://github.com/GurbaniNow/gurbaninow-api for more information and documentation.',
-    ray: req.headers.CF_RAY || null,
+    ray: req.headers[ 'cf-ray' ] || null,
   } )
 ) )
 
