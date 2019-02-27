@@ -8,6 +8,9 @@ const api = Router()
 // Root response
 api.get( '/', ( req, res, next ) => {
   const { mode } = req.query
+  if ( !mode ) {
+    throw new Error( 'APIv1 mode is not given.' )
+  }
   let response
   if ( +mode === 2 ) {
     response = getShabad( req.query.shabadNo )
