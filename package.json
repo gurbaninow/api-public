@@ -20,10 +20,10 @@
   "homepage": "https://github.com/GurbaniNow/api#readme",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
-    "eslint": "^5.14.0",
+    "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsdoc": "^4.0.1",
+    "eslint-plugin-jsdoc": "^4.1.1",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0"
   },
@@ -32,7 +32,7 @@
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "days": "^1.1.1",
-    "esm": "^3.2.5",
+    "esm": "^3.2.7",
     "express": "^4.16.4",
     "fast-xml-parser": "^3.12.13",
     "fs-extra": "^7.0.1",
@@ -42,6 +42,6 @@
     "months": "^2.0.0",
     "nanakshahi": "^3.1.4",
     "node-fetch": "^2.3.0",
-    "pacote": "^9.4.0"
+    "pacote": "^9.5.0"
   }
 }
