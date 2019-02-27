@@ -1,5 +1,5 @@
 import { Lines } from '@shabados/database'
-import { toUnicode, toAscii } from 'gurmukhi-utils'
+import { toUnicode } from 'gurmukhi-utils'
 
 import { stripVishraams, getTranslation } from '../tools'
 import translationSources from '../translationSources'
