@@ -20,28 +20,28 @@
   "homepage": "https://github.com/GurbaniNow/api#readme",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
-    "eslint": "^5.14.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsdoc": "^4.1.1",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0"
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsdoc": "^4.8.4",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2"
   },
   "dependencies": {
-    "@shabados/database": "^4.0.15",
-    "compression": "^1.7.3",
+    "@shabados/database": "^4.1.0",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "days": "^1.1.1",
-    "esm": "^3.2.7",
-    "express": "^4.16.4",
-    "fast-xml-parser": "^3.12.13",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "fast-xml-parser": "^3.12.17",
     "fs-extra": "^7.0.1",
-    "gurmukhi-utils": "^2.0.5",
-    "helmet": "^3.15.1",
-    "import-fresh": "^3.0.0",
-    "months": "^2.0.0",
-    "nanakshahi": "^3.1.4",
-    "node-fetch": "^2.3.0",
-    "pacote": "^9.5.0"
+    "gurmukhi-utils": "^2.1.0",
+    "helmet": "^3.18.0",
+    "import-fresh": "^3.1.0",
+    "months": "^2.1.0",
+    "nanakshahi": "^5.1.1",
+    "node-fetch": "^2.6.0",
+    "pacote": "^9.5.4"
   }
 }
