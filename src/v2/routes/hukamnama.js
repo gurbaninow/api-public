@@ -1,6 +1,6 @@
 import { URL, URLSearchParams } from 'url'
 import { Shabads } from '@shabados/database'
-import { getNanakshahiDate, getPanchang } from 'nanakshahi'
+import { getNanakshahiDate, findBikramiDate } from 'nanakshahi'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 import fetch from 'node-fetch'
 import parser from 'fast-xml-parser'
@@ -61,7 +61,7 @@ const getHukamnama = async ( date = false ) => {
     nanakshahiDate = getNanakshahiDate( hukam.date )
   } catch ( e ) {
     // Use Bikrami Calendar for date before 1 Chet, 535 NS (Nanakshahi Adoption)
-    const { solarDate } = getPanchang( date )
+    const { solarDate } = findBikramiDate( date )
     solarDate.englishDate.year -= 1525
     solarDate.punjabiDate.year = toUnicode( solarDate.englishDate.year.toString() )
     nanakshahiDate = { ...solarDate }
