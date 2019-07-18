@@ -16,19 +16,19 @@ import translationSources from '../translationSources'
  * @async
  */
 // eslint-disable-next-line max-len
-const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId, pageNum, limit = 100 ) => {
-  let pageData = Lines.query()
+const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId, pageNum, limit = 20 ) => {
+  let searchData = Lines.query()
     .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
     .withTranslations( translationSources )
     .withTransliterations( [ 1, 4 ] )
 
   if ( +searchType === 0 ) {
-    pageData = pageData.firstLetters( query )
+    searchData = searchData.firstLetters( query )
   } else if ( +searchType === 1 ) {
-    pageData = pageData.firstLetters( query )
+    searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
-    pageData = pageData.fullWord( query ).orderBy( 'order_id' )
+    searchData = searchData.fullWord( query ).orderBy( 'order_id' )
   } else if ( +searchType === 3 ) {
     throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else {
@@ -36,30 +36,30 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
   }
 
   if ( +sourceId !== 0 ) {
-    pageData = pageData.where( 'shabads.source_id', sourceId )
+    searchData = searchData.where( 'shabads.source_id', sourceId )
   }
 
   if ( writerId ) {
-    pageData = pageData.andWhere( 'shabads.writer_id', writerId )
+    searchData = searchData.andWhere( 'shabads.writer_id', writerId )
   }
 
   if ( sectionId ) {
-    pageData = pageData.andWhere( 'shabads.section_id', sectionId )
+    searchData = searchData.andWhere( 'shabads.section_id', sectionId )
   }
 
   if ( pageNum ) {
-    pageData = pageData.andWhere( 'source_page', pageNum )
+    searchData = searchData.andWhere( 'source_page', pageNum )
   }
 
   if ( +limit <= 100 ) {
-    pageData = pageData.limit( limit )
+    searchData = searchData.limit( limit )
   } else {
     throw new Error( `A invalid results number was given: ${limit}` )
   }
 
-  pageData = await pageData
+  searchData = await searchData
 
-  const results = pageData.reduce( ( lines, line ) => ( [
+  const results = searchData.reduce( ( lines, line ) => ( [
     ...lines,
     {
       shabad: {
@@ -91,7 +91,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     },
   ] ), [] )
 
-  return { count: pageData.length, shabads: results }
+  return { count: searchData.length, shabads: results }
 }
 
 export default search
