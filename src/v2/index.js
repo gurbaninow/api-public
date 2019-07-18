@@ -1,6 +1,7 @@
 import { Router } from 'express'
 
 import getSources from './routes/sources'
+import search from './routes/search'
 import getShabad from './routes/shabad'
 import getLine from './routes/line'
 import getHukamnama from './routes/hukamnama'
@@ -39,6 +40,21 @@ api.get( '/banis/:baniId', ( req, res, next ) => (
     .catch( next )
 ) )
 
+// Search Query
+api.get( '/search/:query', ( req, res, next ) => (
+  search(
+    req.params.query,
+    req.query.searchtype,
+    req.query.source,
+    req.query.writer,
+    req.query.raag,
+    req.query.ang,
+    req.query.results,
+    req.query.skip,
+  ).then( result => res.json( { ...result, error: false } ) )
+    .catch( next )
+) )
+
 // Get Shabad from id
 api.get( '/shabad/:shabadId', ( req, res, next ) => (
   getShabad( req.params.shabadId )
@@ -54,7 +70,7 @@ api.get( '/line/:lineId', ( req, res, next ) => (
 ) )
 
 // Get Hukamnama from Sri Darbar Sahib
-api.get( '/hukamnama', ( _, res ) => res.redirect( 'hukamnama/today' ) )
+api.get( '/hukamnama', ( _, res ) => res.redirect( '/v2/hukamnama/today' ) )
 
 // Get Today's Hukamnama from Sri Darbar Sahib
 api.get( '/hukamnama/today', ( _, res, next ) => {
