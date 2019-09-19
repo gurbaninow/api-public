@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import getSources from './routes/sources'
+import { getSections, getSources, getWriters } from './routes/meta'
 import search from './routes/search'
 import getShabad from './routes/shabad'
 import getLine from './routes/line'
@@ -19,9 +19,23 @@ api.get( '/', ( req, res ) => (
   } )
 ) )
 
+// Get List of Sections
+api.get( '/meta/sections', ( _, res, next ) => (
+  getSections()
+    .then( result => res.json( result ) )
+    .catch( next )
+) )
+
 // Get List of Sources
-api.get( '/sources', ( _, res, next ) => (
+api.get( '/meta/sources', ( _, res, next ) => (
   getSources()
+    .then( result => res.json( result ) )
+    .catch( next )
+) )
+
+// Get List of Writers
+api.get( '/meta/writers', ( _, res, next ) => (
+  getWriters()
     .then( result => res.json( result ) )
     .catch( next )
 ) )
