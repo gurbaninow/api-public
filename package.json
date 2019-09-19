@@ -22,10 +22,10 @@
     "babel-eslint": "^9.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsdoc": "^4.8.4",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.3"
   },
   "dependencies": {
     "@shabados/database": "^4.1.0",
@@ -34,14 +34,14 @@
     "days": "^1.1.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "fast-xml-parser": "^3.12.17",
+    "fast-xml-parser": "^3.12.20",
     "fs-extra": "^7.0.1",
     "gurmukhi-utils": "^2.1.0",
-    "helmet": "^3.18.0",
+    "helmet": "^3.21.0",
     "import-fresh": "^3.1.0",
     "months": "^2.1.0",
-    "nanakshahi": "^5.1.1",
+    "nanakshahi": "^5.1.2",
     "node-fetch": "^2.6.0",
-    "pacote": "^9.5.4"
+    "pacote": "^9.5.8"
   }
 }
