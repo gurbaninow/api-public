@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  build:backend-dev:
+  build-dev:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
