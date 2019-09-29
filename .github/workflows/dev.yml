@@ -1,4 +1,4 @@
-name: Build and Publish Dev Docker Image
+name: Build Dev Docker Image
 
 on:
   push:
@@ -6,16 +6,29 @@ on:
       - dev
 
 jobs:
-  build-dev:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Login
-      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build
+    - name: Login to Docker Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+    - name: Build Docker Image
       run: docker build -t gurbaninow/api:${GITHUB_SHA} .
-    - name: Publish
+    - name: Publish to Docker Hub
       run: |
         docker push gurbaninow/api:${GITHUB_SHA}
         docker tag gurbaninow/api:${GITHUB_SHA} gurbaninow/api:dev
+        docker push gurbaninow/api:dev
+  build-github:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Login to GitHub Package Registry
+      run: echo ${{ secrets.GITHUB_PERSONAL_TOKEN }} | docker login docker.pkg.github.com --username ${{ secrets.GITHUB_USERNAME }} --password-stdin
+    - name: Build Docker Image
+      run: docker build -t docker.pkg.github.com/GurbaniNow/api/dev:${GITHUB_SHA} .
+    - name: Publish to GitHub Package Registry
+      run: |
+        docker push docker.pkg.github.com/GurbaniNow/api/dev:${GITHUB_SHA}
+        docker tag docker.pkg.github.com/GurbaniNow/api/dev:${GITHUB_SHA} docker.pkg.github.com/GurbaniNow/api/dev:latest
         docker push gurbaninow/api:dev
