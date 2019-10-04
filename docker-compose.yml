@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  shabados-database:
+    image: shabados/database:4-mariadb
+    ports:
+      - "3306:3306"
+  
+  gurbaninow-api:
+    build: .
+    ports:
+      - "13131:13131"
+    environment:
+      KNEXFILE: /usr/app/knexfile.local.js
+      NODE_ENV: development
+    volumes: 
+      - .:/usr/app
