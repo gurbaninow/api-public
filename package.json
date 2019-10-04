@@ -4,7 +4,9 @@
   "description": "GurbaniNow API",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm index.js",
+    "start": "cross-per-env",
+    "start:production": "node -r esm index.js",
+    "start:development": "nodemon -L --exec npm run start:production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
   },
@@ -25,12 +27,14 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsdoc": "^4.8.4",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0"
+    "eslint-plugin-react": "^7.16.0",
+    "nodemon": "^1.19.3"
   },
   "dependencies": {
     "@shabados/database": "^4.2.1",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "cross-per-env": "^1.0.5",
     "days": "^1.1.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
