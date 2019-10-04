@@ -25,19 +25,19 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsdoc": "^4.8.4",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3"
+    "eslint-plugin-react": "^7.16.0"
   },
   "dependencies": {
-    "@shabados/database": "^4.1.0",
+    "@shabados/database": "^4.2.1",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "days": "^1.1.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "fast-xml-parser": "^3.12.20",
+    "fast-xml-parser": "^3.13.0",
     "fs-extra": "^7.0.1",
     "gurmukhi-utils": "^2.1.0",
-    "helmet": "^3.21.0",
+    "helmet": "^3.21.1",
     "import-fresh": "^3.1.0",
     "months": "^2.1.0",
     "nanakshahi": "^5.1.2",
