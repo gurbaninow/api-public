@@ -142,7 +142,12 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
 
   if ( +limit > 100 ) {
     throw new Error( `A invalid results number was given: ${limit}` )
-  } else if ( +limit <= count ) {
+  } else if ( +skip > 0 ) {
+    results.splice( 0, +skip )
+    if ( results.length >= +limit ) {
+      results.length = +limit
+    }
+  } else if ( count >= +limit ) {
     results.length = +limit
   }
 
