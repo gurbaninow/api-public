@@ -51,12 +51,6 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     searchData = searchData.andWhere( 'source_page', pageNum )
   }
 
-  if ( +limit <= 100 ) {
-    searchData = searchData.limit( limit )
-  } else {
-    throw new Error( `A invalid results number was given: ${limit}` )
-  }
-
   searchData = await searchData
 
   const results = searchData.reduce( ( lines, line ) => ( [
@@ -91,7 +85,15 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     },
   ] ), [] )
 
-  return { count: searchData.length, shabads: results }
+  const count = searchData.length
+
+  if ( +limit <= 100 ) {
+    results.length = +limit
+  } else {
+    throw new Error( `A invalid results number was given: ${limit}` )
+  }
+
+  return { count, shabads: results }
 }
 
 export default search
