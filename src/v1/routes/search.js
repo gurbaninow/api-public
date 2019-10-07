@@ -87,10 +87,10 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
 
   const count = searchData.length
 
-  if ( +limit <= 100 ) {
-    results.length = +limit
-  } else {
+  if ( +limit > 100 ) {
     throw new Error( `A invalid results number was given: ${limit}` )
+  } else if ( +limit <= count ) {
+    results.length = +limit
   }
 
   return { count, shabads: results }
