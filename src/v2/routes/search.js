@@ -32,7 +32,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
     // Full Word (Gurmukhi)
-    searchData = searchData.fullWord( query, false ).orderBy( 'order_id' )
+    searchData = searchData.fullWord( query, false ).orderBy( 'lines.order_id' )
   } else if ( +searchType === 3 ) {
     throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else if ( +searchType === 4 ) {
@@ -46,7 +46,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
       asciiSearch = !isAscii( word ) ? toAscii( word ) : word
       searchData.andWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
     } )
-    searchData = searchData.orderBy( 'order_id' )
+    searchData = searchData.orderBy( 'lines.order_id' )
   } else if ( +searchType === 5 ) {
     throw new Error( 'Search All Words not Supported at the Moment.' )
   } else if ( +searchType === 6 ) {
@@ -60,7 +60,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
       asciiSearch = !isAscii( word ) ? toAscii( word ) : word
       searchData.orWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
     } )
-    searchData = searchData.orderBy( 'order_id' )
+    searchData = searchData.orderBy( 'lines.order_id' )
   } else if ( +searchType === 7 ) {
     throw new Error( 'Search Any Words not Supported at the Moment.' )
   } else {
