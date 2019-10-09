@@ -1,5 +1,6 @@
 import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
+import isAscii from 'is-ascii'
 
 import { textLarivaar, stripVishraams, getTranslation } from '../tools'
 import translationSources from '../translationSources'
@@ -24,19 +25,42 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     .withTransliterations( [ 1, 4 ] )
 
   if ( +searchType === 0 ) {
+    // First Letter Start (Gurmukhi)
     searchData = searchData.firstLetters( query, true, true )
   } else if ( +searchType === 1 ) {
+    // First Letter Anywhere (Gurmukhi)
     searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
-    searchData = searchData.fullWord( query ).orderBy( 'order_id' )
+    // Full Word (Gurmukhi)
+    searchData = searchData.fullWord( query, false ).orderBy( 'order_id' )
   } else if ( +searchType === 3 ) {
     throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else if ( +searchType === 4 ) {
-    throw new Error( 'Search All Words not Supported at the Moment.' )
+    // Search All Words (Gurmukhi)
+    const words = query.split( ' ' )
+    searchData = searchData
+      .select( '*' )
+      .distinct( 'lines.id' )
+    let asciiSearch
+    words.forEach( word => {
+      asciiSearch = !isAscii( word ) ? toAscii( word ) : word
+      searchData.andWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
+    } )
+    searchData = searchData.orderBy( 'order_id' )
   } else if ( +searchType === 5 ) {
     throw new Error( 'Search All Words not Supported at the Moment.' )
   } else if ( +searchType === 6 ) {
-    throw new Error( 'Search Any Words not Supported at the Moment.' )
+    // Search Any Words (Gurmukhi)
+    const words = query.split( ' ' )
+    searchData = searchData
+      .select( '*' )
+      .distinct( 'lines.id' )
+    let asciiSearch
+    words.forEach( word => {
+      asciiSearch = !isAscii( word ) ? toAscii( word ) : word
+      searchData.orWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
+    } )
+    searchData = searchData.orderBy( 'order_id' )
   } else if ( +searchType === 7 ) {
     throw new Error( 'Search Any Words not Supported at the Moment.' )
   } else {

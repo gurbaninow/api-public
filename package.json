@@ -43,6 +43,7 @@
     "gurmukhi-utils": "^2.1.0",
     "helmet": "^3.21.1",
     "import-fresh": "^3.1.0",
+    "is-ascii": "^1.0.0",
     "months": "^2.1.0",
     "mysql": "^2.17.1",
     "nanakshahi": "^5.1.2",
