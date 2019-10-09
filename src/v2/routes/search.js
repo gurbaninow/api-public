@@ -24,7 +24,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     .withTransliterations( [ 1, 4 ] )
 
   if ( +searchType === 0 ) {
-    searchData = searchData.firstLetters( query )
+    searchData = searchData.firstLetters( query, true, true )
   } else if ( +searchType === 1 ) {
     searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
