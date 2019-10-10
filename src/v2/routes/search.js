@@ -26,13 +26,13 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
 
   if ( +searchType === 0 ) {
     // First Letter Start (Gurmukhi)
-    searchData = searchData.firstLetters( query, true, true )
+    searchData = searchData.firstLetters( query, true, false )
   } else if ( +searchType === 1 ) {
     // First Letter Anywhere (Gurmukhi)
     searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
     // Full Word (Gurmukhi)
-    searchData = searchData.fullWord( query, false ).orderBy( 'lines.order_id' )
+    searchData = searchData.fullWord( query, false, false ).orderBy( 'lines.order_id' )
   } else if ( +searchType === 3 ) {
     throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else if ( +searchType === 4 ) {
