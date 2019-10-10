@@ -36,7 +36,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
   }
 
   if ( +sourceId !== 0 ) {
-    searchData = searchData.where( 'shabads.source_id', sourceId )
+    searchData = searchData.andWhere( 'shabads.source_id', sourceId )
   }
 
   if ( writerId ) {
