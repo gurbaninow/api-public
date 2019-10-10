@@ -24,11 +24,11 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     .withTransliterations( [ 1, 4 ] )
 
   if ( +searchType === 0 ) {
-    searchData = searchData.firstLetters( query, true, true )
+    searchData = searchData.firstLetters( query, true, false )
   } else if ( +searchType === 1 ) {
     searchData = searchData.firstLetters( query )
   } else if ( +searchType === 2 ) {
-    searchData = searchData.fullWord( query, false ).orderBy( 'order_id' )
+    searchData = searchData.fullWord( query, false, false ).orderBy( 'lines.order_id' )
   } else if ( +searchType === 3 ) {
     throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else {
