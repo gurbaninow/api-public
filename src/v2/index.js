@@ -3,6 +3,7 @@ import { Router } from 'express'
 import { getSections, getSources, getWriters } from './routes/meta'
 import search from './routes/search'
 import getShabad from './routes/shabad'
+import getRandomShabad from './routes/randomShabad'
 import getLine from './routes/line'
 import getHukamnama from './routes/hukamnama'
 import getPage from './routes/page'
@@ -66,6 +67,13 @@ api.get( '/search/:query', ( req, res, next ) => (
     req.query.results,
     req.query.skip,
   ).then( result => res.json( { ...result, error: false } ) )
+    .catch( next )
+) )
+
+// Get Random Shabad
+api.get( '/shabad/random', ( _, res, next ) => (
+  getRandomShabad()
+    .then( result => res.redirect( `/v2/shabad/${result}` ) )
     .catch( next )
 ) )
 
