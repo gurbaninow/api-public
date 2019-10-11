@@ -1,4 +1,4 @@
-import { Shabads } from '@shabados/database'
+import { Shabads, knex } from '@shabados/database'
 import { raw } from 'objection'
 
 /**
@@ -6,14 +6,15 @@ import { raw } from 'objection'
  * @async
  */
 const getRandomShabad = async () => {
-  const shabadId = await Shabads.query()
+  // Determine SQL Engine and use proper function
+  const random = knex.client.config.client === 'mysql' ? 'rand()' : 'random()'
+
+  return Shabads.query()
     .select( 'id' )
     .where( 'source_id', 1 )
-    .orderBy( raw( 'rand()' ) )
+    .orderBy( raw( random ) )
     .limit( 1 )
     .then( result => ( result[ 0 ].id ) )
-
-  return shabadId
 }
 
 export default getRandomShabad
