@@ -5,7 +5,7 @@
  * @returns {object} Formatted Error Data
  */
 const errorHandler = ( { message }, { method, path, query }, res, next ) => {
-  res.status( 400 ).json( {
+  res.status( 500 ).json( {
     error: true,
     request: { method, path, query },
     message,
