@@ -1,8 +1,9 @@
 import { Router } from 'express'
+import git from 'git-rev-sync'
+import { hostname } from 'os'
 
 import apiv2 from './v2'
 import apiv1 from './v1'
-import { version } from '../package.json'
 
 // Set up API
 const api = Router()
@@ -11,9 +12,9 @@ const api = Router()
 api.get( '/', ( req, res ) => (
   res.json( {
     name: 'GurbaniNow API',
-    version,
+    version: git.long(),
     docs: 'Visit https://github.com/GurbaniNow/gurbaninow-api for more information and documentation.',
-    ray: req.headers[ 'cf-ray' ] || null,
+    ray: req.headers[ 'cf-ray' ] || hostname(),
   } )
 ) )
 
