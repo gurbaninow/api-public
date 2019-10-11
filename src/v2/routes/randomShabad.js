@@ -9,7 +9,7 @@ const getRandomShabad = async () => {
   const shabadId = await Shabads.query()
     .select( 'id' )
     .where( 'source_id', 1 )
-    .orderBy( raw( 'random()' ) )
+    .orderBy( raw( 'rand()' ) )
     .limit( 1 )
     .then( result => ( result[ 0 ].id ) )
 
