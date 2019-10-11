@@ -39,7 +39,7 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "fast-xml-parser": "^3.13.0",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.1.0",
     "git-rev-sync": "^1.12.0",
     "gurmukhi-utils": "^2.1.1",
     "helmet": "^3.21.1",
