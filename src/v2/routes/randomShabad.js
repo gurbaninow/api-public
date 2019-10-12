@@ -1,5 +1,4 @@
 import { Shabads, knex } from '@shabados/database'
-import { raw } from 'objection'
 
 /**
  * Get Random Shabad ID from SGGS
@@ -12,7 +11,7 @@ const getRandomShabad = async () => {
   return Shabads.query()
     .select( 'id' )
     .where( 'source_id', 1 )
-    .orderBy( raw( random ) )
+    .orderBy( knex.raw( random ) )
     .limit( 1 )
     .then( result => ( result[ 0 ].id ) )
 }
