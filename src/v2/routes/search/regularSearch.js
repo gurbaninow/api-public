@@ -23,10 +23,10 @@ const regularSearch = async ( query, searchType, sourceId = 0, writerId, section
 
   if ( +searchType === 0 ) {
     // First Letter Start (Gurmukhi)
-    searchData = searchData.firstLetters( query, true, false )
+    searchData = searchData.genericSearch( query, 'first_letters', true, false, false )
   } else if ( +searchType === 1 ) {
     // First Letter Anywhere (Gurmukhi)
-    searchData = searchData.firstLetters( query )
+    searchData = searchData.genericSearch( query, 'first_letters', true, true, false )
   } else if ( +searchType === 2 ) {
     // Full Word (Gurmukhi)
     searchData = searchData.fullWord( query, false, false ).orderBy( 'lines.order_id' )
