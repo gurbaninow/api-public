@@ -12,7 +12,6 @@ import translationSources from '../translationSources'
  */
 const getPage = async ( sourceId = 1, pageNum ) => {
   const pageData = await Lines.query()
-    .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
     .withTranslations( translationSources )
     .withTransliterations( [ 1, 4 ] )
