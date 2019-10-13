@@ -2,24 +2,21 @@ import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 import isAscii from 'is-ascii'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../tools'
-import translationSources from '../translationSources'
+import { textLarivaar, stripVishraams, getTranslation } from '../../tools'
+import translationSources from '../../translationSources'
 
 /**
  * Get all the lines based on query
  * @param {string} [query] Query
- * @param {number} [searchType=0] Search Type. Default is First Letter Start.
+  * @param {number} [searchType] Search Type.
  * @param {number} [sourceId=0] The ID of the source to use. Default is all.
  * @param {number} writerId Writer ID to retrieve all lines from.
  * @param {number} sectionId Section ID to retrieve all lines from.
  * @param {number} pageNum The page in the source to retrieve all lines from.
- * @param {number} [limit=100] Limit result to a certain number of lines.
  * @async
  */
-// eslint-disable-next-line max-len
-const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId, pageNum, limit = 20, skip = 0 ) => {
+const regularSearch = async ( query, searchType, sourceId = 0, writerId, sectionId, pageNum ) => {
   let searchData = Lines.query()
-    .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
     .withTranslations( translationSources )
     .withTransliterations( [ 1, 4 ] )
@@ -33,8 +30,6 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
   } else if ( +searchType === 2 ) {
     // Full Word (Gurmukhi)
     searchData = searchData.fullWord( query, false, false ).orderBy( 'lines.order_id' )
-  } else if ( +searchType === 3 ) {
-    throw new Error( 'English Translation Searching not Supported at the Moment.' )
   } else if ( +searchType === 4 ) {
     // Search All Words (Gurmukhi)
     const words = query.split( ' ' )
@@ -44,11 +39,9 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     let asciiSearch
     words.forEach( word => {
       asciiSearch = !isAscii( word ) ? toAscii( word ) : word
-      searchData.andWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
+      searchData = searchData.andWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
     } )
     searchData = searchData.orderBy( 'lines.order_id' )
-  } else if ( +searchType === 5 ) {
-    throw new Error( 'Search All Words not Supported at the Moment.' )
   } else if ( +searchType === 6 ) {
     // Search Any Words (Gurmukhi)
     const words = query.split( ' ' )
@@ -58,11 +51,9 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     let asciiSearch
     words.forEach( word => {
       asciiSearch = !isAscii( word ) ? toAscii( word ) : word
-      searchData.orWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
+      searchData = searchData.orWhere( 'gurmukhi', 'LIKE', `%${asciiSearch}%` )
     } )
     searchData = searchData.orderBy( 'lines.order_id' )
-  } else if ( +searchType === 7 ) {
-    throw new Error( 'Search Any Words not Supported at the Moment.' )
   } else {
     throw new Error( `A invalid searchtype was given: ${searchType}` )
   }
@@ -85,7 +76,7 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
 
   searchData = await searchData
 
-  const results = searchData.reduce( ( lines, line ) => ( [
+  return searchData.reduce( ( lines, line ) => ( [
     ...lines,
     {
       shabad: {
@@ -161,34 +152,6 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
       },
     },
   ] ), [] )
-
-  const count = searchData.length
-
-  if ( +limit > 100 ) {
-    throw new Error( `A invalid results number was given: ${limit}` )
-  } else if ( +skip > 0 ) {
-    results.splice( 0, +skip )
-    if ( results.length >= +limit ) {
-      results.length = +limit
-    }
-  } else if ( count >= +limit ) {
-    results.length = +limit
-  }
-
-  return {
-    inputvalues: {
-      searchvalue: query,
-      searchtype: searchType,
-      source: sourceId,
-      writer: writerId,
-      raag: sectionId,
-      page: pageNum,
-      results: limit,
-      skip,
-    },
-    count,
-    shabads: results,
-  }
 }
 
-export default search
+export default regularSearch
