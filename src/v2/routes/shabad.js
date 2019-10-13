@@ -17,6 +17,13 @@ const getShabad = async shabadId => {
     .withTransliterations( [ 1, 4 ] )
     .then( ( [ shabad ] ) => shabad )
 
+  const [ { id: previousShabad } ] = await Shabads.query()
+    .select( 'id' )
+    .where( 'order_id', shabadData.orderId - 1 )
+  const [ { id: nextShabad } ] = await Shabads.query()
+    .select( 'id' )
+    .where( 'order_id', shabadData.orderId + 1 )
+
   const shabadLines = {
     shabadinfo: {
       shabadid: shabadData.id,
@@ -47,6 +54,10 @@ const getShabad = async shabadId => {
         startang: shabadData.section.startPage,
         endang: shabadData.section.endPage,
         raagwithpage: `${shabadData.section.nameEnglish} (${shabadData.section.startPage}-${shabadData.section.endPage})`,
+      },
+      navigation: {
+        previous: previousShabad,
+        next: nextShabad,
       },
       count: shabadData.lines.length,
     },
