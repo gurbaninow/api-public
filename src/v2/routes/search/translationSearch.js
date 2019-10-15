@@ -23,6 +23,7 @@ const translationSearch = async (
   pageNum,
 ) => {
   let searchData = Translations.query()
+    .join( 'shabads', 'shabads.id', 'line.shabad_id' )
     .eager( 'line.shabad.[section.source, writer]' )
     .whereIn( 'translation_source_id', translationSources )
 
@@ -57,15 +58,15 @@ const translationSearch = async (
   }
 
   if ( +sourceId !== 0 ) {
-    searchData = searchData.andWhere( 'line:shabad.source_id', sourceId )
+    searchData = searchData.andWhere( 'shabads.source_id', sourceId )
   }
 
   if ( writerId ) {
-    searchData = searchData.andWhere( 'line:shabad.writer_id', writerId )
+    searchData = searchData.andWhere( 'shabads.writer_id', writerId )
   }
 
   if ( sectionId ) {
-    searchData = searchData.andWhere( 'line:shabad.section_id', sectionId )
+    searchData = searchData.andWhere( 'shabads.section_id', sectionId )
   }
 
   if ( pageNum ) {

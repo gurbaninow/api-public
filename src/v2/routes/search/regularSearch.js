@@ -17,6 +17,7 @@ import translationSources from '../../translationSources'
  */
 const regularSearch = async ( query, searchType, sourceId = 0, writerId, sectionId, pageNum ) => {
   let searchData = Lines.query()
+    .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
     .withTranslations( translationSources )
     .withTransliterations( [ 1, 4 ] )
