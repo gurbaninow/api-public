@@ -30,7 +30,7 @@ const regularSearch = async ( query, searchType, sourceId = 0, writerId, section
     searchData = searchData.genericSearch( query, 'first_letters', true, true, false )
   } else if ( +searchType === 2 ) {
     // Full Word (Gurmukhi)
-    searchData = searchData.fullWord( query, false, false ).orderBy( 'lines.order_id' )
+    searchData = searchData.fullWord( query, false, true ).orderBy( 'lines.order_id' )
   } else if ( +searchType === 4 ) {
     // Search All Words (Gurmukhi)
     const words = query.split( ' ' )
