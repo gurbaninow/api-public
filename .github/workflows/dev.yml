@@ -28,7 +28,4 @@ jobs:
     - name: Build Docker Image
       run: docker build -t docker.pkg.github.com/gurbaninow/api/dev:${GITHUB_SHA} .
     - name: Publish to GitHub Package Registry
-      run: |
-        docker push docker.pkg.github.com/gurbaninow/api/dev:${GITHUB_SHA}
-        docker tag docker.pkg.github.com/gurbaninow/api/dev:${GITHUB_SHA} docker.pkg.github.com/gurbaninow/api/dev:latest
-        docker push docker.pkg.github.com/gurbaninow/api/dev:latest
+      run: docker push docker.pkg.github.com/gurbaninow/api/dev:${GITHUB_SHA}
