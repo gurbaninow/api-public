@@ -1,36 +1,19 @@
-import { Sections, Sources, Writers } from '@shabados/database'
+import { Shabads, Writers } from '@shabados/database'
 import { toUnicode } from 'gurmukhi-utils'
-
-/**
- * Gets all the Sections in DB.
- * @async
- */
-export const getSections = async () => {
-  const sectionsData = await Sections.query()
-
-  return sectionsData.reduce( ( sections, section ) => ( [
-    ...sections,
-    {
-      id: section.id,
-      akhar: section.nameGurmukhi,
-      unicode: toUnicode( section.nameGurmukhi ),
-      english: section.nameEnglish,
-      description: section.description,
-      startang: section.startPage,
-      endang: section.endPage,
-      source: section.sourceId,
-    },
-  ] ), [] )
-}
 
 /**
  * Gets all the DB sources.
  * @async
  */
 export const getSources = async () => {
-  const sourcesData = await Sources.query()
+  const sourcesData = await Shabads.query()
+    .distinct( 'shabads.source_id' )
+    .select( 'sources.id' )
+    .join( 'sources', 'sources.id', 'shabads.source_id' )
+    .eager( '[source.sections]' )
+    .orderBy( [ 'shabads.source_id', 'source:sections:id' ] )
 
-  return sourcesData.reduce( ( sources, source ) => ( [
+  return sourcesData.reduce( ( sources, { source } ) => ( [
     ...sources,
     {
       id: source.id,
@@ -43,6 +26,18 @@ export const getSources = async () => {
         unicode: toUnicode( source.pageNameGurmukhi ),
         english: source.pageNameEnglish,
       },
+      sections: source.sections.reduce( ( sections, section ) => ( [
+        ...sections,
+        {
+          id: section.id,
+          akhar: section.nameGurmukhi,
+          unicode: toUnicode( section.nameGurmukhi ),
+          english: section.nameEnglish,
+          description: section.description,
+          startPage: section.startPage,
+          endPage: section.endPage,
+        },
+      ] ), [] ),
     },
   ] ), [] )
 }

@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { getSections, getSources, getWriters } from './routes/meta'
+import { getSources, getWriters } from './routes/meta'
 import search from './routes/search'
 import getShabad from './routes/shabad'
 import getRandomShabad from './routes/randomShabad'
@@ -18,13 +18,6 @@ api.get( '/', ( req, res ) => (
     name: 'GurbaniNow API v2',
     version: 2,
   } )
-) )
-
-// Get List of Sections
-api.get( '/meta/sections', ( _, res, next ) => (
-  getSections()
-    .then( result => res.json( result ) )
-    .catch( next )
 ) )
 
 // Get List of Sources
