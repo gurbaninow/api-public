@@ -1,4 +1,4 @@
-import { Shabads, Writers } from '@shabados/database'
+import { Sources, Writers } from '@shabados/database'
 import { toUnicode } from 'gurmukhi-utils'
 
 /**
@@ -6,14 +6,11 @@ import { toUnicode } from 'gurmukhi-utils'
  * @async
  */
 export const getSources = async () => {
-  const sourcesData = await Shabads.query()
-    .distinct( 'shabads.source_id' )
-    .select( 'sources.id' )
-    .join( 'sources', 'sources.id', 'shabads.source_id' )
-    .eager( '[source.sections]' )
-    .orderBy( [ 'shabads.source_id', 'source:sections:id' ] )
+  const sourcesData = await Sources.query()
+    .eager( '[sections]' )
+    .orderBy( [ 'id', 'sections:id' ] )
 
-  return sourcesData.reduce( ( sources, { source } ) => ( [
+  return sourcesData.reduce( ( sources, source ) => ( [
     ...sources,
     {
       id: source.id,
