@@ -17,10 +17,10 @@ const getShabad = async shabadId => {
     .withTransliterations( [ 1, 4 ] )
     .then( ( [ shabad ] ) => shabad )
 
-  const [ { id: previousShabad } ] = await Shabads.query()
+  const [ previousShabad ] = await Shabads.query()
     .select( 'id' )
     .where( 'order_id', shabadData.orderId - 1 )
-  const [ { id: nextShabad } ] = await Shabads.query()
+  const [ nextShabad ] = await Shabads.query()
     .select( 'id' )
     .where( 'order_id', shabadData.orderId + 1 )
 
