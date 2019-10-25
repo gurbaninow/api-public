@@ -38,7 +38,7 @@
     "days": "^1.1.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "fast-xml-parser": "^3.13.0",
+    "fast-xml-parser": "^3.14.0",
     "fs-extra": "^7.0.1",
     "git-rev-sync": "^1.12.0",
     "gurmukhi-utils": "^2.1.0",
