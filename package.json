@@ -42,7 +42,7 @@
     "fs-extra": "^8.1.0",
     "git-rev-sync": "^1.12.0",
     "gurmukhi-utils": "^2.1.1",
-    "helmet": "^3.21.1",
+    "helmet": "^3.21.2",
     "import-fresh": "^3.1.0",
     "is-ascii": "^1.0.0",
     "months": "^2.1.0",
