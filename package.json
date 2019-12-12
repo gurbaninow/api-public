@@ -31,7 +31,7 @@
     "nodemon": "^1.19.4"
   },
   "dependencies": {
-    "@shabados/database": "^4.4.1",
+    "@shabados/database": "^4.5.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "cross-per-env": "^1.0.5",
