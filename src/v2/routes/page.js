@@ -1,8 +1,7 @@
 import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../tools'
-import translationSources from '../translationSources'
+import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
 
 /**
  * Get all the lines on a page for a source.
@@ -14,8 +13,8 @@ const getPage = async ( sourceId = 1, pageNum ) => {
   const pageData = await Lines.query()
     .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
-    .withTranslations( translationSources )
-    .withTransliterations( [ 1, 4 ] )
+    .withTranslations( query => query.eager( 'translationSource.language' ) )
+    .withTransliterations( query => query.eager( 'language' ) )
     .where( 'source_page', pageNum )
     .andWhere( 'shabads.source_id', sourceId )
     .orderBy( 'order_id' )
@@ -67,16 +66,20 @@ const getPage = async ( sourceId = 1, pageNum ) => {
         },
         transliteration: {
           english: {
-            text: stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 1 ) ).transliteration ),
-            larivaar: textLarivaar( stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 1 ) ).transliteration ) ),
+            text: stripVishraams(
+              getTransliteration( line.transliterations, 1 ),
+            ),
+            larivaar: textLarivaar(
+              stripVishraams( getTransliteration( line.transliterations, 1 ) ),
+            ),
           },
           devanagari: {
-            text: stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 4 ) ).transliteration ),
-            larivaar: textLarivaar( stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 4 ) ).transliteration ) ),
+            text: stripVishraams(
+              getTransliteration( line.transliterations, 4 ),
+            ),
+            larivaar: textLarivaar(
+              stripVishraams( getTransliteration( line.transliterations, 4 ) ),
+            ),
           },
         },
         writer: {

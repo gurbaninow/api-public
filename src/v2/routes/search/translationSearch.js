@@ -1,7 +1,7 @@
 import { Translations } from '@shabados/database'
 import { toUnicode } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../../tools'
+import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../../tools'
 import translationSources from '../../translationSources'
 
 /**

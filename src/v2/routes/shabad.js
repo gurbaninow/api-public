@@ -1,8 +1,7 @@
 import { Shabads } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../tools'
-import translationSources from '../translationSources'
+import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
 
 /**
  * Get Shabad from Shabad id
@@ -13,8 +12,8 @@ const getShabad = async shabadId => {
   const shabadData = await Shabads.query()
     .where( 'shabads.id', shabadId )
     .eager( '[writer, section, source, lines]' )
-    .withTranslations( translationSources )
-    .withTransliterations( [ 1, 4 ] )
+    .withTranslations( query => query.eager( 'translationSource.language' ) )
+    .withTransliterations( query => query.eager( 'language' ) )
     .then( ( [ shabad ] ) => shabad )
 
   const [ previousShabad ] = await Shabads.query()
@@ -91,16 +90,20 @@ const getShabad = async shabadId => {
         },
         transliteration: {
           english: {
-            text: stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 1 ) ).transliteration ),
-            larivaar: textLarivaar( stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 1 ) ).transliteration ) ),
+            text: stripVishraams(
+              getTransliteration( line.transliterations, 1 ),
+            ),
+            larivaar: textLarivaar(
+              stripVishraams( getTransliteration( line.transliterations, 1 ) ),
+            ),
           },
           devanagari: {
-            text: stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 4 ) ).transliteration ),
-            larivaar: textLarivaar( stripVishraams( line.transliterations.find( (
-              ( { language: { id } } ) => id === 4 ) ).transliteration ) ),
+            text: stripVishraams(
+              getTransliteration( line.transliterations, 4 ),
+            ),
+            larivaar: textLarivaar(
+              stripVishraams( getTransliteration( line.transliterations, 4 ) ),
+            ),
           },
         },
         linenum: line.sourceLine,

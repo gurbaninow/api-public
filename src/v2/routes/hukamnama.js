@@ -7,8 +7,7 @@ import parser from 'fast-xml-parser'
 import months from 'months'
 import days from 'days'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../tools'
-import translationSources from '../translationSources'
+import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
 
 /**
  * Get Hukamnama from Sri Darbar Sahib via SikhNet
@@ -52,8 +51,8 @@ const getHukamnama = async ( date = false ) => {
   const hukam = await shabadIds
     .reduce( ( query, shabadId ) => query.orWhere( 'shabads.sttm_id', +shabadId ), Shabads.query() )
     .eager( '[writer, section, source, lines]' )
-    .withTranslations( translationSources )
-    .withTransliterations( [ 1, 4 ] )
+    .withTranslations( query => query.eager( 'translationSource.language' ) )
+    .withTransliterations( query => query.eager( 'language' ) )
     .then( shabads => ( { date: hukamDate, shabads } ) )
 
   let nanakshahiDate
@@ -164,16 +163,20 @@ const getHukamnama = async ( date = false ) => {
       },
       transliteration: {
         english: {
-          text: stripVishraams( transliterations.find( (
-            ( { language: { id } } ) => id === 1 ) ).transliteration ),
-          larivaar: textLarivaar( stripVishraams( transliterations.find( (
-            ( { language: { id } } ) => id === 1 ) ).transliteration ) ),
+          text: stripVishraams(
+            getTransliteration( transliterations, 1 ),
+          ),
+          larivaar: textLarivaar(
+            stripVishraams( getTransliteration( transliterations, 1 ) ),
+          ),
         },
         devanagari: {
-          text: stripVishraams( transliterations.find( (
-            ( { language: { id } } ) => id === 4 ) ).transliteration ),
-          larivaar: textLarivaar( stripVishraams( transliterations.find( (
-            ( { language: { id } } ) => id === 4 ) ).transliteration ) ),
+          text: stripVishraams(
+            getTransliteration( transliterations, 4 ),
+          ),
+          larivaar: textLarivaar(
+            stripVishraams( getTransliteration( transliterations, 4 ) ),
+          ),
         },
       },
       linenum,

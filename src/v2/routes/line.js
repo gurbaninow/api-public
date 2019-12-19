@@ -1,8 +1,7 @@
 import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
-import { textLarivaar, stripVishraams, getTranslation } from '../tools'
-import translationSources from '../translationSources'
+import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
 
 /**
  * Get Line from Line ID
@@ -12,8 +11,8 @@ import translationSources from '../translationSources'
 const getLine = async lineId => {
   const lineData = await Lines.query()
     .eager( 'shabad.[section.source, writer]' )
-    .withTranslations( translationSources )
-    .withTransliterations( [ 1, 4 ] )
+    .withTranslations( query => query.eager( 'translationSource.language' ) )
+    .withTransliterations( query => query.eager( 'language' ) )
     .where( 'lines.id', lineId )
     .then( ( [ line ] ) => line )
 
@@ -43,16 +42,20 @@ const getLine = async lineId => {
       },
       transliteration: {
         english: {
-          text: stripVishraams( lineData.transliterations.find( (
-            ( { language: { id } } ) => id === 1 ) ).transliteration ),
-          larivaar: textLarivaar( stripVishraams( lineData.transliterations.find( (
-            ( { language: { id } } ) => id === 1 ) ).transliteration ) ),
+          text: stripVishraams(
+            getTransliteration( lineData.transliterations, 1 ),
+          ),
+          larivaar: textLarivaar(
+            stripVishraams( getTransliteration( lineData.transliterations, 1 ) ),
+          ),
         },
         devanagari: {
-          text: stripVishraams( lineData.transliterations.find( (
-            ( { language: { id } } ) => id === 4 ) ).transliteration ),
-          larivaar: textLarivaar( stripVishraams( lineData.transliterations.find( (
-            ( { language: { id } } ) => id === 4 ) ).transliteration ) ),
+          text: stripVishraams(
+            getTransliteration( lineData.transliterations, 4 ),
+          ),
+          larivaar: textLarivaar(
+            stripVishraams( getTransliteration( lineData.transliterations, 4 ) ),
+          ),
         },
       },
       source: {
