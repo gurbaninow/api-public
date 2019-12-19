@@ -2,6 +2,7 @@ import { Shabads } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
 import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
+import { punjabiSources, englishSources, spanishSources } from '../translationSources'
 
 /**
  * Get Shabad from Shabad id
@@ -12,8 +13,8 @@ const getShabad = async shabadId => {
   const shabadData = await Shabads.query()
     .where( 'shabads.id', shabadId )
     .eager( '[writer, section, source, lines]' )
-    .withTranslations( query => query.eager( 'translationSource.language' ) )
-    .withTransliterations( query => query.eager( 'language' ) )
+    .withTranslations()
+    .withTransliterations()
     .then( ( [ shabad ] ) => shabad )
 
   const [ previousShabad ] = await Shabads.query()
@@ -78,15 +79,15 @@ const getShabad = async shabadId => {
         },
         translation: {
           english: {
-            default: getTranslation( line.translations, 1 ),
+            default: getTranslation( line.translations, englishSources ),
           },
           punjabi: {
             default: {
-              akhar: toAscii( getTranslation( line.translations, 2 ) ),
-              unicode: getTranslation( line.translations, 2 ),
+              akhar: toAscii( getTranslation( line.translations, punjabiSources ) ),
+              unicode: getTranslation( line.translations, punjabiSources ),
             },
           },
-          spanish: getTranslation( line.translations, 3 ),
+          spanish: getTranslation( line.translations, spanishSources ),
         },
         transliteration: {
           english: {
