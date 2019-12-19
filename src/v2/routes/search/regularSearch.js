@@ -3,6 +3,7 @@ import { toUnicode, toAscii } from 'gurmukhi-utils'
 import isAscii from 'is-ascii'
 
 import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../../tools'
+import { punjabiSources, englishSources, spanishSources } from '../../translationSources'
 
 /**
  * Get all the lines based on query
@@ -18,8 +19,8 @@ const regularSearch = async ( query, searchType, sourceId = 0, writerId, section
   let searchData = Lines.query()
     .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
-    .withTranslations( query => query.eager( 'translationSource.language' ) )
-    .withTransliterations( query => query.eager( 'language' ) )
+    .withTranslations()
+    .withTransliterations()
 
   if ( +searchType === 0 ) {
     // First Letter Start (Gurmukhi)
@@ -92,15 +93,15 @@ const regularSearch = async ( query, searchType, sourceId = 0, writerId, section
         },
         translation: {
           english: {
-            default: getTranslation( line.translations, 1 ),
+            default: getTranslation( line.translations, englishSources ),
           },
           punjabi: {
             default: {
-              akhar: toAscii( getTranslation( line.translations, 2 ) ),
-              unicode: getTranslation( line.translations, 2 ),
+              akhar: toAscii( getTranslation( line.translations, punjabiSources ) ),
+              unicode: getTranslation( line.translations, punjabiSources ),
             },
           },
-          spanish: getTranslation( line.translations, 3 ),
+          spanish: getTranslation( line.translations, spanishSources ),
         },
         transliteration: {
           english: {

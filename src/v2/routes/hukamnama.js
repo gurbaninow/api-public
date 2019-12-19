@@ -8,6 +8,7 @@ import months from 'months'
 import days from 'days'
 
 import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
+import { punjabiSources, englishSources, spanishSources } from '../translationSources'
 
 /**
  * Get Hukamnama from Sri Darbar Sahib via SikhNet
@@ -51,8 +52,8 @@ const getHukamnama = async ( date = false ) => {
   const hukam = await shabadIds
     .reduce( ( query, shabadId ) => query.orWhere( 'shabads.sttm_id', +shabadId ), Shabads.query() )
     .eager( '[writer, section, source, lines]' )
-    .withTranslations( query => query.eager( 'translationSource.language' ) )
-    .withTransliterations( query => query.eager( 'language' ) )
+    .withTranslations()
+    .withTransliterations()
     .then( shabads => ( { date: hukamDate, shabads } ) )
 
   let nanakshahiDate
@@ -151,15 +152,15 @@ const getHukamnama = async ( date = false ) => {
       },
       translation: {
         english: {
-          default: getTranslation( translations, 1 ),
+          default: getTranslation( translations, englishSources ),
         },
         punjabi: {
           default: {
-            akhar: toAscii( getTranslation( translations, 2 ) ),
-            unicode: getTranslation( translations, 2 ),
+            akhar: toAscii( getTranslation( translations, punjabiSources ) ),
+            unicode: getTranslation( translations, punjabiSources ),
           },
         },
-        spanish: getTranslation( translations, 3 ),
+        spanish: getTranslation( translations, spanishSources ),
       },
       transliteration: {
         english: {

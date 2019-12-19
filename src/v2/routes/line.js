@@ -2,6 +2,7 @@ import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
 import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
+import { punjabiSources, englishSources, spanishSources } from '../translationSources'
 
 /**
  * Get Line from Line ID
@@ -11,8 +12,8 @@ import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from
 const getLine = async lineId => {
   const lineData = await Lines.query()
     .eager( 'shabad.[section.source, writer]' )
-    .withTranslations( query => query.eager( 'translationSource.language' ) )
-    .withTransliterations( query => query.eager( 'language' ) )
+    .withTranslations()
+    .withTransliterations()
     .where( 'lines.id', lineId )
     .then( ( [ line ] ) => line )
 
@@ -30,15 +31,15 @@ const getLine = async lineId => {
       },
       translation: {
         english: {
-          default: getTranslation( lineData.translations, 1 ),
+          default: getTranslation( lineData.translations, englishSources ),
         },
         punjabi: {
           default: {
-            akhar: toAscii( getTranslation( lineData.translations, 2 ) ),
-            unicode: getTranslation( lineData.translations, 2 ),
+            akhar: toAscii( getTranslation( lineData.translations, punjabiSources ) ),
+            unicode: getTranslation( lineData.translations, punjabiSources ),
           },
         },
-        spanish: getTranslation( lineData.translations, 3 ),
+        spanish: getTranslation( lineData.translations, spanishSources ),
       },
       transliteration: {
         english: {

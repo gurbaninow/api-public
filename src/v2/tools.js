@@ -1,5 +1,3 @@
-import translationSources from './translationSources'
-
 /**
  * Replaces spaces with zero-width space for Larivaar
  * @param {string} text Pad-Shed text
@@ -15,15 +13,15 @@ export const textLarivaar = text => text.replace( /\s/ug, '\u200B' )
 export const stripVishraams = text => text.replace( /[;,.]/ug, '' )
 
 /**
- * Return translation from Language ID and List of ID's
+ * Return translation from list of Translation ID's
  * @param {object} translations Translations Object from Shabad OS DB
  * @param {number} languageId Lanuage ID of Translation
  * @returns {string} Translation
  */
-export const getTranslation = ( translations, languageId ) => {
-  const { translation } = translations.find( ( { translationSource: {
-    language: { id },
-  } } ) => id === languageId ) || {}
+export const getTranslation = ( translations, translationIds ) => {
+  const { translation } = translations.find( (
+    { translationSourceId },
+  ) => translationIds.includes( translationSourceId ) ) || {}
 
   return translation || ''
 }
@@ -34,9 +32,10 @@ export const getTranslation = ( translations, languageId ) => {
  * @param {number} languageId Lanuage ID of Translation
  * @returns {string} Translation
  */
-export const getTransliteration = ( transliterations, languageId ) => {
-  const { transliteration } = transliterations.find( ( { language:
-    { id } } ) => id === languageId ) || {}
+export const getTransliteration = ( transliterations, language ) => {
+  const { transliteration } = transliterations.find( (
+    { languageId },
+  ) => languageId === language ) || {}
 
   return transliteration || ''
 }

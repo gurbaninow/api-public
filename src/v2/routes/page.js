@@ -2,6 +2,7 @@ import { Lines } from '@shabados/database'
 import { toUnicode, toAscii } from 'gurmukhi-utils'
 
 import { textLarivaar, stripVishraams, getTranslation, getTransliteration } from '../tools'
+import { punjabiSources, englishSources, spanishSources } from '../translationSources'
 
 /**
  * Get all the lines on a page for a source.
@@ -13,8 +14,8 @@ const getPage = async ( sourceId = 1, pageNum ) => {
   const pageData = await Lines.query()
     .join( 'shabads', 'shabads.id', 'lines.shabad_id' )
     .eager( 'shabad.[section.source, writer]' )
-    .withTranslations( query => query.eager( 'translationSource.language' ) )
-    .withTransliterations( query => query.eager( 'language' ) )
+    .withTranslations()
+    .withTransliterations()
     .where( 'source_page', pageNum )
     .andWhere( 'shabads.source_id', sourceId )
     .orderBy( 'order_id' )
@@ -54,15 +55,15 @@ const getPage = async ( sourceId = 1, pageNum ) => {
         },
         translation: {
           english: {
-            default: getTranslation( line.translations, 1 ),
+            default: getTranslation( line.translations, englishSources ),
           },
           punjabi: {
             default: {
-              akhar: toAscii( getTranslation( line.translations, 2 ) ),
-              unicode: getTranslation( line.translations, 2 ),
+              akhar: toAscii( getTranslation( line.translations, punjabiSources ) ),
+              unicode: getTranslation( line.translations, punjabiSources ),
             },
           },
-          spanish: getTranslation( line.translations, 3 ),
+          spanish: getTranslation( line.translations, spanishSources ),
         },
         transliteration: {
           english: {
