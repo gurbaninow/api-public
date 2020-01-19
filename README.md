@@ -2,8 +2,8 @@
 
 ⚡️ 🙏 Fast and Powerful Gurbani and Shabad REST API used by [GurbaniNow Search](https://gurbaninow.com) and many other projects.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gurbaninow/api/master)
-![Docker Pulls](https://img.shields.io/docker/pulls/gurbaninow/api)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gurbaninow/api/master)](https://github.com/GurbaniNow/api/actions)
+[![Docker Pulls](https://img.shields.io/docker/pulls/gurbaninow/api)](https://hub.docker.com/r/gurbaninow/api)
 [![GitHub license](https://img.shields.io/github/license/GurbaniNow/api)](https://github.com/GurbaniNow/api/blob/master/LICENSE)
 [![Email](https://img.shields.io/badge/Email-contact%40gurbaninow.com-blue.svg)](mailto:contact@gurbaninow.com)
 [![Slack](https://img.shields.io/badge/Slack-join%20the%20conversation-B649AB.svg)](https://chat.shabados.com)
