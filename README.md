@@ -26,7 +26,7 @@ The API Documentation can be viewed on the [Wiki](https://github.com/GurbaniNow/
 
 ## Licence
 
-GurbaniNow API Copyright (C) 2015-2020 GurbaniNow Dev Team. All Rights Reserved.
+GurbaniNow API Copyright © 2015-2020 GurbaniNow Dev Team. All Rights Reserved.
 
 Gurbani and Shabad Data is provided by the [Shabad OS Database](https://github.com/ShabadOS/database). Please check licening info from their [repository](https://github.com/ShabadOS/database#licenses).
 
