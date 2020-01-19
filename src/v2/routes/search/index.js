@@ -1,5 +1,5 @@
 import regularSearch from './regularSearch'
-import translationSearch from './translationSearch'
+// import translationSearch from './translationSearch'
 
 /**
  * Get all the lines based on query
@@ -20,9 +20,10 @@ const search = async ( query, searchType = 0, sourceId = 0, writerId, sectionId,
     searchData = await regularSearch( query, searchType, sourceId, writerId, sectionId, pageNum )
   } else if ( [ 3, 5, 7 ].includes( +searchType ) ) {
     // Translation Searching (Using Translations)
-    searchData = await translationSearch(
+    throw new Error( 'English Translation Seaching not Supported at the Moment!' )
+    /* searchData = await translationSearch(
       query, searchType, sourceId, writerId, sectionId, pageNum,
-    )
+    ) */
   } else {
     throw new Error( `A invalid searchtype was given: ${searchType}` )
   }
