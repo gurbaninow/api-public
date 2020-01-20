@@ -14,7 +14,7 @@ api.get( '/', ( req, res ) => (
   res.json( {
     name: 'GurbaniNow API',
     version: long(),
-    docs: 'Visit https://github.com/GurbaniNow/gurbaninow-api for more information and documentation.',
+    docs: 'Visit https://github.com/GurbaniNow/api for more information and documentation.',
     ray: req.headers[ 'cf-ray' ] || hostname(),
     engine: knex.client.config.client,
   } )
