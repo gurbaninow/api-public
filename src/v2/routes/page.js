@@ -17,7 +17,7 @@ const getPage = async ( sourceId = 1, pageNum ) => {
     .withTranslations()
     .withTransliterations()
     .where( 'source_page', pageNum )
-    .andWhere( 'shabads.source_id', sourceId )
+    .andWhere( 'shabads.source_id', typeof sourceId === 'string' ? 1 : sourceId )
     .orderBy( 'order_id' )
 
   const firstLine = pageData[ 0 ]
