@@ -111,9 +111,21 @@ api.get( '/ang/:pageNum', ( req, res, next ) => (
 ) )
 
 // Get Page of specific Source (Depricated)
-api.get( '/ang/:pageNum/:sourceId', ( req, res ) => (
-  res.redirect( `/v2/ang/${req.params.pageNum}?source=${req.params.sourceId}` )
-) )
+api.get( '/ang/:pageNum/:sourceId', ( req, res ) => {
+  const oldSourceIds = {
+    G: 1,
+    D: 2,
+    B: 3,
+    N: 7,
+    A: 11,
+    U: 11,
+  }
+  if ( [ 'G', 'D', 'B', 'N', 'A', 'U' ].includes( req.params.sourceId ) ) {
+    res.redirect( `/v2/ang/${req.params.pageNum}?source=${oldSourceIds[ req.params.sourceId ]}` )
+  } else {
+    res.redirect( `/v2/ang/${req.params.pageNum}?source=${req.params.sourceId}` )
+  }
+} )
 
 // Converter
 api.get( '/convert/:type/:text', ( req, res ) => res.json( convertText( req.params.type, req.params.text ) ) )

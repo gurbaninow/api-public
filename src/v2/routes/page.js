@@ -17,8 +17,7 @@ const getPage = async ( sourceId = 1, pageNum ) => {
     .withTranslations()
     .withTransliterations()
     .where( 'source_page', pageNum )
-    // eslint-disable-next-line no-nested-ternary
-    .andWhere( 'shabads.source_id', sourceId === 'G' ? 1 : ( sourceId === 'D' ? 2 : sourceId ) )
+    .andWhere( 'shabads.source_id', sourceId )
     .orderBy( 'order_id' )
 
   const firstLine = pageData[ 0 ]
