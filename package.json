@@ -25,9 +25,9 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsdoc": "^18.11.0",
+    "eslint-plugin-jsdoc": "^21.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.19.0",
     "nodemon": "^1.19.4"
   },
   "dependencies": {
@@ -42,7 +42,7 @@
     "fs-extra": "^8.1.0",
     "git-rev-sync": "^1.12.0",
     "gurmukhi-utils": "^2.2.0",
-    "helmet": "^3.21.2",
+    "helmet": "^3.22.0",
     "import-fresh": "^3.2.1",
     "is-ascii": "^1.0.0",
     "months": "^2.1.0",
