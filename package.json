@@ -48,7 +48,7 @@
     "months": "^2.1.0",
     "mysql": "^2.18.1",
     "nanakshahi": "^6.0.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "pacote": "^11.1.4"
   }
 }
