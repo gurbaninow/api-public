@@ -28,7 +28,7 @@
     "eslint-plugin-jsdoc": "^21.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.6"
   },
   "dependencies": {
     "@shabados/database": "^4.7.0",
